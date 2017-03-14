@@ -27,4 +27,8 @@ I lament the fact that the college I teach programming at does not offer a _'too
 * Reddit - [r/webdev](https://www.reddit.com/r/webdev/), [r/javascript](https://www.reddit.com/r/javascript/), [r/learnjavascript](https://www.reddit.com/r/learnjavascript/) are all indispensable resources!
 
 
+#### Final Thought
+
+It is assumed before you ever dig into any type of programming that you know how to computer. What I mean by that is that you know how to manage your files & folders on your computer. If you do not, here are two resources for Windows users: [RESOURCE 1](http://www.quepublishing.com/articles/article.aspx?p=2163343), [RESOURCE 2](https://www.groovypost.com/howto/windows-10-files-folders-file-explorer/).
+
 That should be WAY more than enough stuff to explore and install to get you up and running so you can start coding!
