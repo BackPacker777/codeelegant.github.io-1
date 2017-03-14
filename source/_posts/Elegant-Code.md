@@ -35,8 +35,8 @@ Everything on the above list is what **_I_** would consider foundational, impera
 * A templating engine. I chose EJS for it's simplicity
 * File I/O with Ajax, CSV, & databses (I chose NeDB for Mongo-like syntax at a millionith of the overhead)
 * Progressive web app methodology (https, manifest.json, service worker, & favicons)
-* [Firebase](firebase.google.com)
-* [Heroku](www.heroku.com)
+* [Firebase](http://firebase.google.com)
+* [Heroku](http://www.heroku.com)
 
 As I began my learning journey, I had many obstacles. The main one was my OCD personality. When I code, I prefer to do it using industry best-practice standards. Learning modern web development using the web is not very conducive to this because of all the bad or outdated material out there. Just filtering the web content is a major chore and it was one that I tried my best to sheild my students from by curating the best of the best and linking what I found on our LMS (learning management system).
 
