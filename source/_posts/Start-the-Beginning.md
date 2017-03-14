@@ -13,7 +13,7 @@ I lament the fact that the college I teach programming at does not offer a _'too
 * [Git for Windows](http://git-scm.com/download/win) - This tool is needed to keep track of the changes you make to your programming files. Learn [HERE](http://www.udacity.com/course/how-to-use-git-and-github--ud775).
 *[GitHub Desktop](http://desktop.github.com) - Additional utility you can use to publish the repositories you create with Git to the web.
 *[Node.js](http://nodejs.org) - This is the engine that web browsers use to compile the JavaScript code that you write for webpages. They ripped it out, souped it up, and provied it for computers to utilize _outside the browser!_
-* [Google Chrome](https://www.google.com/intl/en/chrome/browser/desktop/index.html?standalone=1) - Indespensible web browser because of it's support of language features but _**ESPECIALLY**_ because of its [developer tools](https://developers.google.com/web/tools/chrome-devtools/)!
+* [Google Chrome](https://www.google.com/intl/en/chrome/browser/desktop/index.html?standalone=1) - Indespensible web browser because of its support of language features but _**ESPECIALLY**_ because of its [developer tools](https://developers.google.com/web/tools/chrome-devtools/)!
 * IntelliJ plugins - At a minimum I recommend these: .ignore, CSS support, EJS, ESLint, Floobits, Git, Github, JavaScript, & NodeJS. I also like the Material Theme.
 * Global NPM modules - Use NPM to install these globally: npm install -g PM2, ESLint
 * Chrome Application: [Web server for Chrome](http://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb) - Really handy for viewing your static web files locally.
