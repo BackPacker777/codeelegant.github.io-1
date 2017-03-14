@@ -45,11 +45,11 @@ If I were to rank skill with a particular subject, I would probably do it like t
 * **_Unskilled_**
 * Low
 * Intermediate-low
-* High-low
-* Low-intermediate
+* Upper-low
+* Lower-intermediate
 * Intermediate
-* High-intermediate
-* Low-high
+* Upper-intermediate
+* Lower-high
 * Intermediate-high
 * High
 * **_Expert_**
