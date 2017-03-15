@@ -10,6 +10,10 @@ I guess I could re-invent the wheel and try to give a complete tutorial on HTML5
 
 1. [Khan Academy](https://www.khanacademy.org/computing/computer-programming/html-css)
 2. [Interneting is Hard](https://internetingishard.com/html-and-css/) (You can use Intellij IDEa instead of Atom)
+3. [CSS Video Series](https://www.youtube.com/playlist?list=PL07598CCC0961C10C)
+4. [More with Forms 1](http://learn.shayhowe.com/html-css/building-forms/)
+5. [More with Forms 2](http://marksheet.io/html-forms.html)
+6. [Tables](http://learn.shayhowe.com/html-css/organizing-data-with-tables/)
 
 #### Projects
 
