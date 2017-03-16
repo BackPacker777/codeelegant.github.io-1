@@ -6,7 +6,7 @@ tags:
 
 Before we get into the _meat_ of this lesson, i.e. coding a web server (wow, you hacker! Look how far you've progressed), You should have a **SOLID** understanding of how your web browser talks to and receives information from the server. Why? Because all of the server code we are going to write relies on handling routes & [mime types](https://www.sitepoint.com/web-foundations/mime-types-complete-list/). None of it will make any sense to you unless you understand the client/server lingo. If you remember wayyyy back to the Khan Academy [video](https://www.khanacademy.org/computing/computer-programming/html-css/intro-to-html/v/making-webpages-intro) you watched in an early lesson, you'll know that clients sitting at home, or on their smartphones, or on a yacht somewhere in a marina sometimes formulate questions in their head that they would like to look up the answer to: "Are dolphins related to whales?", or "What is the current population of Asheville North Carolina?"  
 ![dolphin_whale](/stuff/dolphin_whale.jpg)  
-So what most sane folks do when they have a question is [Google it](http://bfy.tw/9Zm). That means: Firing up their favorite Chrome web browser, typing their question in the address bar, and selecting the best answer link they'd like to investigate from the results. It looks like this:  
+So, what most sane folks do when they have a question is [Google it](http://bfy.tw/9Zm). That means: Firing up their favorite Chrome web browser, typing their question in the address bar, and selecting the best answer link they'd like to investigate from the results. It looks like this:  
 ![Client Server 1](/stuff/10-21-http-request.png)  
 That's all very technical and you probably want your momma now. Well, perhaps this image is easier to understand:  
 ![Client Server 2](/stuff/HTTP_request.png)  
@@ -17,7 +17,7 @@ Exactly! Now, please read [THIS](https://code.tutsplus.com/tutorials/http-header
 I'll wait.  
   
 Done? Good. Now read [THIS](https://webdesign.tutsplus.com/tutorials/http-status-codes-in-60-seconds--cms-24317) article and watch the short video about the status codes used between the client & the server. (_[HERE](https://httpstatuses.com/) is the full list of codes if you're interested._)  
-That's it. You should be an HTTP guru now. Good job. Sadly, that knowledge is just the _prerequisite_ for the rest of this lesson, but don't worry. I'll go slow and always remember that you can always pause/rewind the videos. For any of this to sink in, you **MUST** do the exercises so here is your first one:  
+That's it. You should be an HTTP guru now. Good job. Sadly, that knowledge is just the _prerequisite_ for the rest of this lesson, but don't worry. I'll go slow, and remember that you can always pause/rewind the videos. For any of this to sink in, you **MUST** do the exercises so here is your first one:  
   
   >In your favorite editor, copy down the second sample HTTP request from the [first](https://webdesign.tutsplus.com/tutorials/http-status-codes-in-60-seconds--cms-24317) article I asked you to read. Explain what is happening on line 17 of the example. Feel free to email your finished work here:  **president@whitehouse.gov**,  I'm sure he'd be very interested.  
   ;-P  
