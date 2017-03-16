@@ -1,7 +1,7 @@
 ---
 title: Vanilla Node.js Webserver
 date: 2017-03-16 08:22:15
-tags:
+tags: node.js, web server, es6, http, mime
 ---
 
 Before we get into the _meat_ of this lesson, i.e. coding a web server (wow, you hacker! Look how far you've progressed), You should have a **SOLID** understanding of how your web browser talks to and receives information from the server. Why? Because all of the server code we are going to write relies on handling routes & [mime types](https://www.sitepoint.com/web-foundations/mime-types-complete-list/). None of it will make any sense to you unless you understand the client/server lingo. If you remember wayyyy back to the Khan Academy [video](https://www.khanacademy.org/computing/computer-programming/html-css/intro-to-html/v/making-webpages-intro) you watched in an early lesson, you'll know that clients sitting at home, or on their smartphones, or on a yacht somewhere in a marina sometimes formulate questions in their head that they would like to look up the answer to: "Are dolphins related to whales?", or "What is the current population of Asheville North Carolina?"  
@@ -137,3 +137,5 @@ If you prefer a non-class-based web server, see [THIS](https://www.youtube.com/w
 ##### In the next installment
 
 We'll add routes to our code and handle various mime types. In the 3rd & final installment, we'll add support for database handling, file I/O, and Ajax responding.  
+
+p.s. One of my students wanted a shout out in my blog, so:  **Hi Nick!**
