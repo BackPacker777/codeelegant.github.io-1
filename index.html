@@ -35,6 +35,125 @@
 
 	<article>
 	
+		<h1><a href="/2017/03/16/Vanilla-Node-js-Webserver/">Vanilla Node.js Webserver</a></h1>
+	
+	<div class="article__infos">
+		<span class="article__date">03-16-2017</span><br />
+		
+		
+	</div>
+
+	
+
+	
+		<p>Before we get into the <em>meat</em> of this lesson, i.e. coding a web server (wow, you hacker! Look how far you’ve progressed), You should have a <strong>SOLID</strong> understanding of how your web browser talks to and receives information from the server. Why? Because all of the server code we are going to write relies on handling routes &amp; <a href="https://www.sitepoint.com/web-foundations/mime-types-complete-list/" target="_blank" rel="external">mime types</a>. None of it will make any sense to you unless you understand the client/server lingo. If you remember wayyyy back to the Khan Academy <a href="https://www.khanacademy.org/computing/computer-programming/html-css/intro-to-html/v/making-webpages-intro" target="_blank" rel="external">video</a> you watched in an early lesson, you’ll know that clients sitting at home, or on their smartphones, or on a yacht somewhere in a marina sometimes formulate questions in their head that they would like to look up the answer to: “Are dolphins related to whales?”, or “What is the current population of Asheville North Carolina?”<br><figure class="figure"><img src="/stuff/dolphin_whale.jpg" alt="dolphin_whale"><figcaption class="figure__caption">dolphin_whale</figcaption></figure><br>So what most sane folks do when they have a question is <a href="http://bfy.tw/9Zm" target="_blank" rel="external">Google it</a>. That means: Firing up their favorite Chrome web browser, typing their question in the address bar, and selecting the best answer link they’d like to investigate from the results. It looks like this:<br><figure class="figure"><img src="stuff/10-21-http-request.png" alt="Client Server 1"><figcaption class="figure__caption">Client Server 1</figcaption></figure><br>That’s all very technical and you probably want your momma now. Well, perhaps this image is easier to understand:<br><figure class="figure"><img src="stuff/HTTP_request.png" alt="Client Server 2"><figcaption class="figure__caption">Client Server 2</figcaption></figure><br><strong><em>STILL</em></strong> too much? Well, how about this?<br><figure class="figure"><img src="stuff/client-server.png" alt="Client Server 3"><figcaption class="figure__caption">Client Server 3</figcaption></figure><br>Exactly! Now, please read <a href="https://code.tutsplus.com/tutorials/http-headers-for-dummies--net-8039" target="_blank" rel="external">THIS</a> article for a good understanding of what’s in the request data that the client sends the server.  </p>
+<p>I’ll wait.  </p>
+<p>Done? Good. Now read <a href="https://webdesign.tutsplus.com/tutorials/http-status-codes-in-60-seconds--cms-24317" target="_blank" rel="external">THIS</a> article and watch the short video about the status codes used between the client &amp; the server. (<em><a href="https://httpstatuses.com/" target="_blank" rel="external">HERE</a> is the full list of codes if you’re interested.</em>)<br>That’s it. You should be an HTTP guru now. Good job. Sadly, that knowledge is just the <em>prerequisite</em> for the rest of this lesson, but don’t worry. I’ll go slow and always remember that you can always pause/rewind the videos. For any of this to sink in, you <strong>MUST</strong> do the exercises so here is your first one:  </p>
+<blockquote>
+<p>In your favorite editor, copy down the second sample HTTP request from the <a href="https://webdesign.tutsplus.com/tutorials/http-status-codes-in-60-seconds--cms-24317" target="_blank" rel="external">first</a> article I asked you to read. Explain what is happening on line 17 of the example. Feel free to email your finished work here:  <strong>president@whitehouse.gov</strong>,  I’m sure he’d be very interested.<br>  ;-P  </p>
+</blockquote>
+<p>Before you begin the next section, please ensure you are knowledgeable about <strong><a href="https://dzone.com/articles/an-absolute-beginners-guide-to-using-npm-1?edition=274884&amp;utm_source=Spotlight&amp;utm_medium=email&amp;utm_campaign=web%20dev%202017-03-02" target="_blank" rel="external">NPM</a></strong>, <strong>JSON</strong>, &amp; <strong>JavaScript functional programming</strong> - All topics I’ve covered in previous lessons. You will also need to have downloaded &amp; installed <a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>. Also, you probably need a ‘pew pew’ break about now, so please go get some frag time logged and come back when you have all the wiggles out.  </p>
+<h4 id="Starting-our-1st-project"><a href="#Starting-our-1st-project" class="headerlink" title="Starting our 1st project"></a>Starting our 1st project</h4><p>Please create a new, blank project in IntelliJ. It should look like this:<br><figure class="figure"><img src="stuff/capture1.png" alt="Screenshot 1"><figcaption class="figure__caption">Screenshot 1</figcaption></figure><br>Now we want to enter the following command to generate our <strong>package.json</strong> project file: <strong>npm init</strong> and answer all of the questions. BOOM! you are well on you way! Wait, what the heck is this file for anyway? Glad you asked, <a href="http://browsenpm.org/package.json" target="_blank" rel="external">THIS</a> interactive guide will walk you through all of the parts.  </p>
+<p>Next create a new JavaScript file in the root directory of your project and name it <strong>app.js</strong>. Inside the file, create a single-line comment on the top thusly:  <strong>//todo:</strong><br>Since I like the new ES6 classes/objects structure, I’m gonna make you do it too. Create your class structure with the constructor and include the “use strict”; pragma and the module export on the bottom of your file. It should look like this:  </p>
+<pre><code class="javascript"><span class="comment">//  todo:</span>
+<span class="meta">
+"use strict"</span>;
+
+<span class="class"><span class="keyword">class</span> <span class="title">app</span> </span>{
+    <span class="keyword">constructor</span>() {
+
+    }
+}
+
+<span class="built_in">module</span>.exports = app;
+</code></pre>
+<p>From here, we have a decision to make. We can code our web server logic from scratch (LOTS of coding for something that already exists for free), or we can use the FREE library called <strong>http</strong>. Hmmmm, I think we’ll use the already completed code in the library! Wanna know why? View the source code <a href="https://github.com/nodejs/node/tree/master/lib" target="_blank" rel="external">HERE</a>(start at http and follow the trail….).<br>So, to add the library import for <strong>http</strong>, make your code look like this:  </p>
+<pre><code class="javascript"><span class="comment">//  todo:</span>
+<span class="meta">
+"use strict"</span>;
+
+<span class="class"><span class="keyword">class</span> <span class="title">app</span> </span>{
+    <span class="keyword">constructor</span>() {
+
+    }
+
+    loadServer() {
+        <span class="keyword">const</span> HTTP = <span class="built_in">require</span>(<span class="string">'http'</span>);
+    }
+}
+
+<span class="built_in">module</span>.exports = app;
+</code></pre>
+<p>Notice that I created an instance method called loadServer and declared/initialized a constant inside of it that is assigned to our library call. Since <strong>http</strong> is part of the standard Node.js library, I don’t have to include it as a dependency in my <strong>package.json</strong> file. <strong><em>DO YOU UNDERSTAND??</em></strong> If not, take a minute, a figure out what you don’t understand. Use the Googles, or StackOverflow….  </p>
+<p>Ok, we’re getting there. Let’s add some actual functionality. If we look at the <strong><a href="https://nodejs.org/api/http.html" target="_blank" rel="external">http api</a></strong>, we can see the various methods we need to employ to get this dang thing to do stuff. The most important thing we want it to do is respond to web browser requests (well, actually, I’d also prefer it to not error-out when I try to start it up!). Add the following code which tells the server which port to listen for browser requests on &amp; runs the <strong><a href="https://nodejs.org/api/http.html#http_http_createserver_requestlistener" target="_blank" rel="external">createServer</a></strong> method of <strong>http</strong>.  </p>
+<pre><code class="javascript"><span class="comment">//  todo:</span>
+<span class="meta">
+"use strict"</span>;
+
+<span class="class"><span class="keyword">class</span> <span class="title">app</span> </span>{
+     <span class="keyword">constructor</span>() {
+          <span class="keyword">this</span>.loadServer();
+     }
+
+     loadServer() {
+          <span class="keyword">const</span> HTTP = <span class="built_in">require</span>(<span class="string">'http'</span>);
+          <span class="keyword">const</span> PORT = <span class="number">8000</span>;
+
+          HTTP.createServer(<span class="function">(<span class="params">request, response</span>) =&gt;</span> {
+               response.writeHead(<span class="number">200</span>, {<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>});
+               response.write(<span class="string">`Look at my website!`</span>);
+               response.end();
+          }).listen(PORT);
+     }
+}
+
+<span class="built_in">module</span>.exports = app;
+</code></pre>
+<p>Whoa, whoa, whoa….. What’s all that response shenanigans? Well…., if you remember back to the earlier articles I asked you to read a few paragraphs up, you know that is how your little server responds back to the client web browser. <strong><a href="https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers" target="_blank" rel="external">response.WriteHead</a></strong> writes the header stuff, <strong><a href="https://nodejs.org/api/http.html#http_response_write_chunk_encoding_callback" target="_blank" rel="external">response.write</a></strong> sends chunks of data back to the client browser. (In this case, just a simple string). <strong><a href="https://nodejs.org/api/http.html#http_response_end_data_encoding_callback" target="_blank" rel="external">response.end</a></strong> ‘hangs up the phone.’<br>Cool, cool. But what does that <strong>.listen(PORT)</strong> thingy do? It is the <a href="https://nodejs.org/api/http.html#http_server_listen_port_hostname_backlog_callback" target="_blank" rel="external">method</a> that <strong>http</strong> actually uses to listen for incoming requests from your buddies trying to check out your new web coding skills!  </p>
+<p>Time to test this baby out. Since it is a class file, we need a way to instantiate an object from it. This is a three (3) step process:  </p>
+<ol>
+<li><p>Edit your <strong>package.json</strong> created earlier to change the scripts section from:  </p>
+<pre><code class="javascript"><span class="string">"scripts"</span>: {
+ <span class="string">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span>
+},
+</code></pre>
+<p>to:  </p>
+<pre><code class="javascript"><span class="string">"scripts"</span>: {
+ <span class="string">"start"</span>: <span class="string">"node bin/server"</span>
+},
+</code></pre>
+</li>
+<li><p>Create a directory called <strong>bin</strong> in the root of our project.</p>
+</li>
+<li><p>Create a file called <strong>server</strong> in the bin directory that has the following IIFE:  </p>
+<pre><code class="javascript">(<span class="function"><span class="params">()</span> =&gt;</span> {
+ <span class="keyword">const</span> APP = <span class="built_in">require</span>(<span class="string">'../app.js'</span>);
+ <span class="keyword">new</span> APP();
+})();
+</code></pre>
+<p>Remember that <strong>module.exports = app;</strong> part at the bottom of your <strong>app.js</strong> file? This is how the <strong>server</strong> file can import it like a library and allow us to instantiate an object of it. :-)<br>All that beautiful code full of parenthesis in the server file is an anonymous arrow IIFE! Woot indeed.  </p>
+</li>
+</ol>
+<p>Start ‘er up! bring up the terminal in IntelliJ and type: <strong>npm start</strong>. You will see the following output:<br><figure class="figure"><img src="stuff/capture2.png" alt="Screenshot"><figcaption class="figure__caption">Screenshot</figcaption></figure><br>Point Chrome at the following address:  <strong>127.0.0.1:8000</strong> and BAM - you should see:  Look at my website!  </p>
+<p>Whew….  </p>
+<p>Stop. I bet you only skimmed some of the above material. GO BACK AND DEEPLY READ the stuff you skimmed. I used to be the same way. I get it. But, really, go back and absorb everything.  </p>
+<blockquote>
+<p>Exercise time:  Change the output from your web server to give out formatted html around your output string. Surround your string with h1 tags and ensure it works in the browser.  </p>
+</blockquote>
+<p>If you prefer a non-class-based web server, see <a href="https://www.youtube.com/watch?v=U8XF6AFGqlc" target="_blank" rel="external">THIS</a> video.  </p>
+<h5 id="In-the-next-installment"><a href="#In-the-next-installment" class="headerlink" title="In the next installment"></a>In the next installment</h5><p>We’ll add routes to our code and handle various mime types. In the 3rd &amp; final installment, we’ll add support for database handling, file I/O, and Ajax responding.  </p>
+
+	
+
+	
+
+</article>
+
+
+
+
+	<article>
+	
 		<h1><a href="/2017/03/15/Beginning-With-JavaScript/">Beginning With JavaScript</a></h1>
 	
 	<div class="article__infos">

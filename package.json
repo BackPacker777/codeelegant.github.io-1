@@ -6,7 +6,7 @@
     "version": "3.2.2"
   },
   "dependencies": {
-    "hexo": "^3.2.0",
+    "hexo": "latest",
     "hexo-generator-archive": "latest",
     "hexo-generator-category": "latest",
     "hexo-deployer-git": "latest",
