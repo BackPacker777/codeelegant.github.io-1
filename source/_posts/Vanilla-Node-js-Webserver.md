@@ -7,11 +7,11 @@ tags:
 Before we get into the _meat_ of this lesson, i.e. coding a web server (wow, you hacker! Look how far you've progressed), You should have a **SOLID** understanding of how your web browser talks to and receives information from the server. Why? Because all of the server code we are going to write relies on handling routes & [mime types](https://www.sitepoint.com/web-foundations/mime-types-complete-list/). None of it will make any sense to you unless you understand the client/server lingo. If you remember wayyyy back to the Khan Academy [video](https://www.khanacademy.org/computing/computer-programming/html-css/intro-to-html/v/making-webpages-intro) you watched in an early lesson, you'll know that clients sitting at home, or on their smartphones, or on a yacht somewhere in a marina sometimes formulate questions in their head that they would like to look up the answer to: "Are dolphins related to whales?", or "What is the current population of Asheville North Carolina?"  
 ![dolphin_whale](/stuff/dolphin_whale.jpg)  
 So what most sane folks do when they have a question is [Google it](http://bfy.tw/9Zm). That means: Firing up their favorite Chrome web browser, typing their question in the address bar, and selecting the best answer link they'd like to investigate from the results. It looks like this:  
-![Client Server 1](stuff/10-21-http-request.png)  
+![Client Server 1](/stuff/10-21-http-request.png)  
 That's all very technical and you probably want your momma now. Well, perhaps this image is easier to understand:  
-![Client Server 2](stuff/HTTP_request.png)  
+![Client Server 2](/stuff/HTTP_request.png)  
 **_STILL_** too much? Well, how about this?  
-![Client Server 3](stuff/client-server.png)  
+![Client Server 3](/stuff/client-server.png)  
 Exactly! Now, please read [THIS](https://code.tutsplus.com/tutorials/http-headers-for-dummies--net-8039) article for a good understanding of what's in the request data that the client sends the server.  
   
 I'll wait.  
@@ -26,7 +26,7 @@ Before you begin the next section, please ensure you are knowledgeable about **[
   
 #### Starting our 1st project
 Please create a new, blank project in IntelliJ. It should look like this:  
-![Screenshot 1](stuff/capture1.png)  
+![Screenshot 1](/stuff/capture1.png)  
 Now we want to enter the following command to generate our **package.json** project file: **npm init** and answer all of the questions. BOOM! you are well on you way! Wait, what the heck is this file for anyway? Glad you asked, [THIS](http://browsenpm.org/package.json) interactive guide will walk you through all of the parts.  
 
 Next create a new JavaScript file in the root directory of your project and name it **app.js**. Inside the file, create a single-line comment on the top thusly:  **//todo:**  
@@ -123,7 +123,7 @@ Remember that **module.exports = app;** part at the bottom of your **app.js** fi
 All that beautiful code full of parenthesis in the server file is an anonymous arrow IIFE! Woot indeed.  
 
 Start 'er up! bring up the terminal in IntelliJ and type: **npm start**. You will see the following output:  
-![Screenshot](stuff/capture2.png)  
+![Screenshot](/stuff/capture2.png)  
 Point Chrome at the following address:  **127.0.0.1:8000** and BAM - you should see:  Look at my website!  
 
 Whew....  
