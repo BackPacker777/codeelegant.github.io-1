@@ -1,5 +1,5 @@
 ---
-title: Vanilla Node.js Webserver
+title: Vanilla Node.js Web Server - 1
 date: 2017-03-16 08:22:15
 tags: node.js, web server, es6, http, mime
 ---
@@ -122,7 +122,7 @@ to:
 Remember that **module.exports = app;** part at the bottom of your **app.js** file? This is how the **server** file can import it like a library and allow us to instantiate an object of it. :-)  
 All that beautiful code full of parenthesis in the server file is an anonymous arrow IIFE! Woot indeed.  
 
-Start 'er up! bring up the terminal in IntelliJ and type: **npm start**. You will see the following output:  
+Start 'er up! bring up the terminal in IntelliJ and type: **npm start**  You will see the following output:  
 ![Screenshot](/stuff/capture2.png)  
 Point Chrome at the following address:  **127.0.0.1:8000** and BAM - you should see:  Look at my website!  
 
@@ -134,7 +134,7 @@ Stop. I bet you only skimmed some of the above material. GO BACK AND DEEPLY READ
 
 If you prefer a non-class-based web server, see [THIS](https://www.youtube.com/watch?v=U8XF6AFGqlc) video.  
 
-##### In the next installment
+##### [In the next installment](https://codeelegant.github.io/2017/03/17/Vanilla-Node-js-Webserver-2/)
 
 We'll add routes to our code and handle various mime types. In the 3rd & final installment, we'll add support for database handling, file I/O, and Ajax responding.  
 
