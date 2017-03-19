@@ -13,9 +13,12 @@ There is real value in writing your thoughts down and articulating your learning
 
 You have a huge array of blogging methods & platforms available to you such as WordPress & Moodle. My recommendation is the following combo:
 
-* [GitHub Pages](https://pages.github.com/) - You already have access to this resource because you have a GitHub account!
-* [Markdown](https://en.wikipedia.org/wiki/Markdown) - A dead-simple set of extra characters that you add to plain text. The final product is easily converted to web pages (html). [Learn](http://www.markdowntutorial.com/), [Reference](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf).
+* [GitHub Pages](https://pages.github.com/) - You already have access to this resource because you have a GitHub account!  
+![Github](/stuff/githubpages.jpg)
+* [Markdown](https://en.wikipedia.org/wiki/Markdown) - A dead-simple set of extra characters that you add to plain text. The final product is easily converted to web pages (html). [Learn](http://www.markdowntutorial.com/), [Reference](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf).  
+![Markdown](/stuff/markdown.png)
 * [Hexo](https://hexo.io) - This one was bit of a challenge for me. I had all kinds of trouble setting it up with a vanilla Windows 10 computer. [HERE](https://malekbenz.com/blog/2016/09/10/Create-Host-Blog-for-free-with-Hexo-Github) is a good tutorial but with some caveats (see below). Hexo works because you have already installed Node.js on your computer.
+![Hexo](/stuff/hexo.png)
 
 #### Hexo Caveats
 
