@@ -21,10 +21,14 @@ I lament the fact that the college I teach programming at does not offer a _'too
 
 ### Sites
 
-* The PREMIER static learning resource on the whole of the internet (IMHO) is the [Mozilla Developer Network (MDN)](https://developer.mozilla.org/en-US/docs/Web). This should be your default reference.
-* [StackOverflow](http://stackoverflow.com) - THE sitefor getting questions answered, but beware: Be sure you've exhausted all of your other resources 1st before asking a question here lest you find yourself kicked into a donkey rape-pit of disdain from the elite users of the site.
+* The PREMIER static learning resource on the whole of the internet (IMHO) is the [Mozilla Developer Network (MDN)](https://developer.mozilla.org/en-US/docs/Web). This should be your default reference.  
+![MDN](/stuff/mdn.jpg)
+* [StackOverflow](http://stackoverflow.com) - THE site for getting questions answered, but beware: Be sure you've exhausted all of your other resources 1st before asking a question here lest you find yourself kicked into a donkey rape-pit of disdain from the elite users of the site.
+![Stack Overflow](/stuff/stackoverflow.png)
 * [HashNode](https://hashnode.com/) - A more gentle, but less effective question answering site.
+![HashNode](/stuff/hashnode.png)
 * Reddit - [r/webdev](https://www.reddit.com/r/webdev/), [r/javascript](https://www.reddit.com/r/javascript/), [r/learnjavascript](https://www.reddit.com/r/learnjavascript/) are all indispensable resources!
+![Reddit](/stuff/reddit.jpg)
 
 
 #### Final Thought
