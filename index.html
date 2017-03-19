@@ -8,8 +8,6 @@
 	<title>Elegant Code</title>
 	<link rel="stylesheet" href="/css/style.css" />
 	
-      <link rel="alternate" href="/atom.xml" title="Elegant Code" type="application/atom+xml">
-    
 </head>
 
 <body>
@@ -20,8 +18,6 @@
 				<a href="/archives" class="header__link">Archive</a>
 			
 				<a href="/tags" class="header__link">Tags</a>
-			
-				<a href="/atom.xml" class="header__link">RSS</a>
 			
 		</nav>
 		<h1 class="header__title"><a href="/">Elegant Code</a></h1>
@@ -677,8 +673,6 @@
 	<ul class="footer-links">
 		<li class="footer-links__link"><a href="/archives">Archive</a></li>
 		
-		  <li class="footer-links__link"><a href="/atom.xml">RSS</a></li>
-	    
 		<li class="footer-links__link"><a href="/about">about page</a></li>
 		<li class="footer-links__link"><a href="/tags">Tags</a></li>
 		<li class="footer-links__link"><a href="/categories">Categories</a></li>
@@ -693,6 +687,24 @@
 
 	</div>
 
+	<div id="disqus_thread"></div>
+	<script>
+
+          /**
+           *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+           *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+		 var disqus_config = function () {
+		 this.page.url = https://codeelegant.github.io;  // Replace PAGE_URL with your page's canonical URL variable
+		 this.page.identifier = CodeElegant; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		 };
+          (function() { // DON'T EDIT BELOW THIS LINE
+               var d = document, s = d.createElement('script');
+               s.src = 'https://https-codeelegant-github-io.disqus.com/embed.js';
+               s.setAttribute('data-timestamp', +new Date());
+               (d.head || d.body).appendChild(s);
+          })();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </footer>
 

@@ -1,13 +1,13 @@
 menu:
  Archive: /archives
  Tags: /tags
- #RSS: /atom.xml
+ RSS: /atom.xml
 
 widgets:
  - greeting
  - site_links
 
-#rss: /atom.xml
+rss: /atom.xml
 
 readMore: ...read more
 

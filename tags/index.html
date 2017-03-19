@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="theme-color" content="#33474d">
-	<title>Elegant Code</title>
+	<title>Tags | Elegant Code</title>
 	<link rel="stylesheet" href="/css/style.css" />
 	
 </head>
@@ -25,14 +25,13 @@
 	</header>
 
 	<main>
-		
-
-<h1>#node-js-web-server-es6-http-mime</h1>
-
-
+		<h1>Tags</h1>
 
 <ul class="archive">
-		<li class="archive__year archive__expendable archive__expendable_disabled">
+	
+		
+		<li class="archive__year archive__expendable">
+			<span>node.js, web server, es6, http, mime</span>
 			<ul>
 			
 				
@@ -54,12 +53,25 @@
 				
 					
 					
+						<li class="archive__entry"><a href="/2017/03/16/Vanilla-Node-js-Webserver/">Vanilla Node.js Web Server - 1</a></li>
+					
 
 				
 			
 			</ul>
 		</li>
+	
 </ul>
+
+<script>
+	const expandables = document.querySelectorAll('.archive__expendable')
+	for(let i = 0; i < expandables.length; i++) {
+		expandables[i].addEventListener('click', (e) => {
+			e.stopPropagation()
+			expandables[i].classList.toggle('archive__expendable_collapsed')
+		})
+	}
+</script>
 
 	</main>
 

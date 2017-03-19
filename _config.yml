@@ -78,3 +78,10 @@ marked:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type:
+
+# Archives
+archive_generator:
+  per_page: 0
+
+# Disqus comments
+disqus_shortname: https-codeelegant-github-io
