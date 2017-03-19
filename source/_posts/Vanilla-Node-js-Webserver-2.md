@@ -1,7 +1,8 @@
 ---
 title: Vanilla Node.js Web Server - 2
 date: 2017-03-17 05:52:12
-tags:
+tags: node.js, web server, es6, http, mime
+categories: Crafting vanilla Node.js web server
 ---
 
 In the [1st lesson](https://codeelegant.github.io/2017/03/16/Vanilla-Node-js-Webserver/), we made a very basic web server. In fact all it did was respond to a client request with a simple string of text. When you think about it, that's still pretty neat because the client could have been anywhere in the world and transacted with the web server: The one **YOU** wrote, with your hand fingers!  
