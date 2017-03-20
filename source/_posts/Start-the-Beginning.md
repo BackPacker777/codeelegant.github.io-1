@@ -1,7 +1,8 @@
 ---
 title: Start @ the Beginning
 date: 2017-03-14 06:58:34
-tags:
+tags: IDE, plugins, sites
+categories: Programming Logistics
 ---
 
 I lament the fact that the college I teach programming at does not offer a _'tooling'_ class. I believe that students who choose programming as a vocation would be better served by learning _how_ to code first before they get into _what_ to code. The programming ecosystem is quite large and somewhat diverse, especially in the realm of editors/IDEs. Below, I will outline what seems to work best for me & my students and I will provide pertinent, curated learning materials that will hopefully help you get started and be productive. If you have had better luck along the way with different tools, please feel free to share! Please also be aware that I code in Windows 10, so you will have to modify your downloads for your OS. Please, please don't just glance at the educational material provided below. Really take the time to learn each tool. I am speaking from the school of hard knocks here as I wasn't always diligent and I paid the price in frustration later as I would go back and find the answer in the material. 

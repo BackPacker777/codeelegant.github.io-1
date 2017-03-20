@@ -33,10 +33,10 @@
 
 	<article>
 	
-		<h1><a href="/2017/03/16/Vanilla-Node-js-Webserver/">Vanilla Node.js Web Server - 1</a></h1>
+		<h1><a href="/2017/03/17/Vanilla-Node-js-Webserver-2/">Vanilla Node.js Web Server - 2</a></h1>
 	
 	<div class="article__infos">
-		<span class="article__date">03-16-2017</span><br />
+		<span class="article__date">03-17-2017</span><br />
 		
 			<span class="article__category">
 				<a class="article-category-link" href="/categories/Crafting-vanilla-Node-js-web-server/">Crafting vanilla Node.js web server</a>
@@ -52,103 +52,174 @@
 	
 
 	
-		<p>Before we get into the <em>meat</em> of this lesson, i.e. coding a web server (wow, you hacker! Look how far you’ve progressed), You should have a <strong>SOLID</strong> understanding of how your web browser talks to and receives information from the server. Why? Because all of the server code we are going to write relies on handling routes &amp; <a href="https://www.sitepoint.com/web-foundations/mime-types-complete-list/" target="_blank" rel="external">mime types</a>. None of it will make any sense to you unless you understand the client/server lingo. If you remember wayyyy back to the Khan Academy <a href="https://www.khanacademy.org/computing/computer-programming/html-css/intro-to-html/v/making-webpages-intro" target="_blank" rel="external">video</a> you watched in an early lesson, you’ll know that clients sitting at home, or on their smartphones, or on a yacht somewhere in a marina sometimes formulate questions in their head that they would like to look up the answer to: “Are dolphins related to whales?”, or “What is the current population of Asheville North Carolina?”<br><figure class="figure"><img src="/stuff/dolphin_whale.jpg" alt="dolphin_whale"><figcaption class="figure__caption">dolphin_whale</figcaption></figure><br>So, what most sane folks do when they have a question is <a href="http://bfy.tw/9Zm" target="_blank" rel="external">Google it</a>. That means: Firing up their favorite Chrome web browser, typing their question in the address bar, and selecting the best answer link they’d like to investigate from the results. It looks like this:<br><figure class="figure"><img src="/stuff/10-21-http-request.png" alt="Client Server 1"><figcaption class="figure__caption">Client Server 1</figcaption></figure><br>That’s all very technical and you probably want your momma now. Well, perhaps this image is easier to understand:<br><figure class="figure"><img src="/stuff/HTTP_request.png" alt="Client Server 2"><figcaption class="figure__caption">Client Server 2</figcaption></figure><br><strong><em>STILL</em></strong> too much? Well, how about this?<br><figure class="figure"><img src="/stuff/client-server.png" alt="Client Server 3"><figcaption class="figure__caption">Client Server 3</figcaption></figure><br>Exactly! Now, please read <a href="https://code.tutsplus.com/tutorials/http-headers-for-dummies--net-8039" target="_blank" rel="external">THIS</a> article for a good understanding of what’s in the request data that the client sends the server.  </p>
-<p>I’ll wait.  </p>
-<p>Done? Good. Now read <a href="https://webdesign.tutsplus.com/tutorials/http-status-codes-in-60-seconds--cms-24317" target="_blank" rel="external">THIS</a> article and watch the short video about the status codes used between the client &amp; the server. (<em><a href="https://httpstatuses.com/" target="_blank" rel="external">HERE</a> is the full list of codes if you’re interested.</em>)<br>That’s it. You should be an HTTP guru now. Good job. Sadly, that knowledge is just the <em>prerequisite</em> for the rest of this lesson, but don’t worry. I’ll go slow, and remember that you can always pause/rewind the videos. For any of this to sink in, you <strong>MUST</strong> do the exercises so here is your first one:  </p>
-<blockquote>
-<p>In your favorite editor, copy down the second sample HTTP request from the <a href="https://webdesign.tutsplus.com/tutorials/http-status-codes-in-60-seconds--cms-24317" target="_blank" rel="external">first</a> article I asked you to read. Explain what is happening on line 17 of the example. Feel free to email your finished work here:  <strong>president@whitehouse.gov</strong>,  I’m sure he’d be very interested.<br>  ;-P  </p>
-</blockquote>
-<p>Before you begin the next section, please ensure you are knowledgeable about <strong><a href="https://dzone.com/articles/an-absolute-beginners-guide-to-using-npm-1?edition=274884&amp;utm_source=Spotlight&amp;utm_medium=email&amp;utm_campaign=web%20dev%202017-03-02" target="_blank" rel="external">NPM</a></strong>, <strong>JSON</strong>, &amp; <strong>JavaScript functional programming</strong> - All topics I’ve covered in previous lessons. You will also need to have downloaded &amp; installed <a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>. Also, you probably need a ‘pew pew’ break about now, so please go get some frag time logged and come back when you have all the wiggles out.  </p>
-<h4 id="Starting-our-1st-project"><a href="#Starting-our-1st-project" class="headerlink" title="Starting our 1st project"></a>Starting our 1st project</h4><p>Please create a new, blank project in IntelliJ. It should look like this:<br><figure class="figure"><img src="/stuff/capture1.png" alt="Screenshot 1"><figcaption class="figure__caption">Screenshot 1</figcaption></figure><br>Now we want to enter the following command to generate our <strong>package.json</strong> project file: <strong>npm init</strong> and answer all of the questions. BOOM! you are well on you way! Wait, what the heck is this file for anyway? Glad you asked, <a href="http://browsenpm.org/package.json" target="_blank" rel="external">THIS</a> interactive guide will walk you through all of the parts.  </p>
-<p>Next create a new JavaScript file in the root directory of your project and name it <strong>app.js</strong>. Inside the file, create a single-line comment on the top thusly:  <strong>//todo:</strong><br>Since I like the new ES6 classes/objects structure, I’m gonna make you do it too. Create your class structure with the constructor and include the “use strict”; pragma and the module export on the bottom of your file. It should look like this:  </p>
-<pre><code class="javascript"><span class="comment">//  todo:</span>
+		<p>In the <a href="https://codeelegant.github.io/2017/03/16/Vanilla-Node-js-Webserver/">1st lesson</a>, we made a very basic web server. In fact all it did was respond to a client request with a simple string of text. When you think about it, that’s still pretty neat because the client could have been anywhere in the world and transacted with the web server: The one <strong>YOU</strong> wrote, with your hand fingers!<br>As awesome as that is, we <em>probably</em> want a little more functionality. In this lesson, we’ll add some routes. That means when a client requests a specific resource from our server like a page a photos of our dog, we can respond with the correct data. We’ll also add the ability to handle mime types whereby, if the client requests a non-plain text item like a photo, we can tell the browser how to display it to the user. If we didn’t, the browser would display EVERYONES favorite picture:<br><figure class="figure"><img src="/stuff/noimage.png" alt="No Image"><figcaption class="figure__caption">No Image</figcaption></figure><br>Right now, your web server code should look like this:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  todo:</span></div><div class="line"><span class="meta"></span></div><div class="line">"use strict";</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">app</span> </span>&#123;</div><div class="line">     <span class="keyword">constructor</span>() &#123;</div><div class="line">          <span class="keyword">this</span>.loadServer();</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     loadServer() &#123;</div><div class="line">          <span class="keyword">const</span> HTTP = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line">          <span class="keyword">const</span> PORT = <span class="number">8000</span>;</div><div class="line"></div><div class="line">          HTTP.createServer(<span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</div><div class="line">               response.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>&#125;);</div><div class="line">               response.write(<span class="string">`Look at my website!`</span>);</div><div class="line">               response.end();</div><div class="line">          &#125;).listen(PORT);</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = app;</div></pre></td></tr></table></figure></p>
+<p>To make our web presence all fancy, we’ll use some CSS to style it and some pictures to snazz it up. Let’s tell our server to ask questions about the client request:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// todo:</span></div><div class="line"><span class="meta"></span></div><div class="line">"use strict";</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">app</span> </span>&#123;</div><div class="line">	<span class="keyword">constructor</span>() &#123;</div><div class="line">		<span class="keyword">this</span>.loadServer();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	loadServer() &#123;</div><div class="line">		<span class="keyword">const</span> HTTP = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line">		<span class="keyword">const</span> PORT = <span class="number">8000</span>;</div><div class="line">		</div><div class="line">		HTTP.createServer(<span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</div><div class="line">						</div><div class="line">			<span class="keyword">if</span> (request.url.indexOf(<span class="string">'.css'</span>) &gt;= <span class="number">0</span>) &#123;</div><div class="line"></div><div class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (request.url.indexOf(<span class="string">'.js'</span>) &gt;= <span class="number">0</span>) &#123;</div><div class="line"></div><div class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (request.url.indexOf(<span class="string">'.html'</span>) &gt;= <span class="number">0</span>) &#123;</div><div class="line"></div><div class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (request.url.indexOf(<span class="string">'.png'</span>) &gt;= <span class="number">0</span>) &#123;</div><div class="line"></div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line"></div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		&#125;).listen(PORT);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = app;</div></pre></td></tr></table></figure>
+<p>Notice that the guts of the loadServer() function’s logic has changed. Some folks prefer to use a <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch" target="_blank" rel="external">switch</a></strong> statement instead of cascading if statements. Whatever floats your boat. I like my way. The magic of what’s happening here are the <strong>request.url.indexOf</strong> statements. If we have a look-see at the ‘ol JavaScript API for <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf" target="_blank" rel="external">indexOf</a> we see that this technique is a way to search a text string for the occurrence of what we’re looking for. In the case of the first <strong>if</strong> test, we’re looking for the character sequence <strong>.css</strong> in the request <strong>url</strong>. Hmmmm, any idea what files may have the extension .css? Yes! Our css stylesheets! We have to put some commands inside the if blocks to handle the request once we’ve decided what it is. I like this technique:  </p>
+<pre><code class="javascript"><span class="comment">// todo:</span>
 <span class="meta">
 "use strict"</span>;
 
 <span class="class"><span class="keyword">class</span> <span class="title">app</span> </span>{
     <span class="keyword">constructor</span>() {
-
-    }
-}
-
-<span class="built_in">module</span>.exports = app;
-</code></pre>
-<p>From here, we have a decision to make. We can code our web server logic from scratch (LOTS of coding for something that already exists for free), or we can use the FREE library called <strong>http</strong>. Hmmmm, I think we’ll use the already completed code in the library! Wanna know why? View the source code <a href="https://github.com/nodejs/node/tree/master/lib" target="_blank" rel="external">HERE</a>(start at http and follow the trail….).<br>So, to add the library import for <strong>http</strong>, make your code look like this:  </p>
-<pre><code class="javascript"><span class="comment">//  todo:</span>
-<span class="meta">
-"use strict"</span>;
-
-<span class="class"><span class="keyword">class</span> <span class="title">app</span> </span>{
-    <span class="keyword">constructor</span>() {
-
+        <span class="keyword">this</span>.loadServer();
     }
 
     loadServer() {
         <span class="keyword">const</span> HTTP = <span class="built_in">require</span>(<span class="string">'http'</span>);
+        <span class="keyword">const</span> PORT = <span class="number">8000</span>;
+
+        HTTP.createServer(<span class="function">(<span class="params">request, response</span>) =&gt;</span> {
+
+            <span class="keyword">let</span> httpHandler = <span class="function">(<span class="params">error, string, contentType</span>) =&gt;</span> {
+                <span class="keyword">if</span> (error) {
+                     response.writeHead(<span class="number">500</span>, {<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>});
+                     response.end(<span class="string">'An error has occurred: '</span> + error.message);
+                } <span class="keyword">else</span> <span class="keyword">if</span> (contentType.indexOf(<span class="string">'css'</span>) &gt;= <span class="number">0</span> || contentType.indexOf(<span class="string">'html'</span>) &gt;= <span class="number">0</span> || contentType.indexOf(<span class="string">'js'</span>) &gt;= <span class="number">0</span>) {
+                    response.writeHead(<span class="number">200</span>, {<span class="string">'Content-Type'</span>: contentType});
+                    response.end(string, <span class="string">'utf-8'</span>);
+                } <span class="keyword">else</span> {
+                    response.writeHead(<span class="number">200</span>, {<span class="string">'Content-Type'</span>: contentType});
+                    response.end(string, <span class="string">'binary'</span>);
+                }
+            };
+
+            <span class="keyword">if</span> (request.url.indexOf(<span class="string">'.css'</span>) &gt;= <span class="number">0</span>) {
+
+            } <span class="keyword">else</span> <span class="keyword">if</span> (request.url.indexOf(<span class="string">'.js'</span>) &gt;= <span class="number">0</span>) {
+
+            } <span class="keyword">else</span> <span class="keyword">if</span> (request.url.indexOf(<span class="string">'.html'</span>) &gt;= <span class="number">0</span>) {
+
+            } <span class="keyword">else</span> <span class="keyword">if</span> (request.url.indexOf(<span class="string">'.png'</span>) &gt;= <span class="number">0</span>) {
+
+            } <span class="keyword">else</span> {
+
+            }
+
+        }).listen(PORT);
     }
 }
 
 <span class="built_in">module</span>.exports = app;
 </code></pre>
-<p>Notice that I created an instance method called loadServer and declared/initialized a constant inside of it that is assigned to our library call. Since <strong>http</strong> is part of the standard Node.js library, I don’t have to include it as a dependency in my <strong>package.json</strong> file. <strong><em>DO YOU UNDERSTAND??</em></strong> If not, take a minute, a figure out what you don’t understand. Use the Googles, or StackOverflow….  </p>
-<p>Ok, we’re getting there. Let’s add some actual functionality. If we look at the <strong><a href="https://nodejs.org/api/http.html" target="_blank" rel="external">http api</a></strong>, we can see the various methods we need to employ to get this dang thing to do stuff. The most important thing we want it to do is respond to web browser requests (well, actually, I’d also prefer it to not error-out when I try to start it up!). Add the following code which tells the server which port to listen for browser requests on &amp; runs the <strong><a href="https://nodejs.org/api/http.html#http_http_createserver_requestlistener" target="_blank" rel="external">createServer</a></strong> method of <strong>http</strong>.  </p>
-<pre><code class="javascript"><span class="comment">//  todo:</span>
+<p>The first step is to create a <strong>function expression</strong> that accepts an error, the string content from the render function (we haven’t made this yet), and the content type of the request from the client. Hold up. You’re probably wondering how we are going to send our <em>images</em> as string. Great question! First, see <a href="http://stackoverflow.com/a/1892044/466246" target="_blank" rel="external">this answer</a> on why we don’t use binary. Here is what your pictures look like before we tell the browser to translate them to binary:<br><figure class="figure"><img src="/stuff/stringbinary.png" alt="Pic of Grandma!"><figcaption class="figure__caption">Pic of Grandma!</figcaption></figure><br>Awww, grandma…!  </p>
+<p>This is the reason we have to handle (encode) the mime types and tell the browser to render the response from our web server as either <strong>binary</strong> for all non-plain text data, and <strong>utf-8</strong> for all plain text data. What’s <strong>utf-8</strong>? see <a href="http://stackoverflow.com/a/33358306/466246" target="_blank" rel="external">THIS</a>.<br>Ok, now let’s add the ability to read the data off of the hard drive of your server so you can give it to the client.  </p>
+<pre><code class="javascript"><span class="comment">// todo:</span>
 <span class="meta">
 "use strict"</span>;
 
 <span class="class"><span class="keyword">class</span> <span class="title">app</span> </span>{
-     <span class="keyword">constructor</span>() {
-          <span class="keyword">this</span>.loadServer();
-     }
+    <span class="keyword">constructor</span>() {
+        <span class="keyword">this</span>.loadServer();
+    }
 
-     loadServer() {
-          <span class="keyword">const</span> HTTP = <span class="built_in">require</span>(<span class="string">'http'</span>);
-          <span class="keyword">const</span> PORT = <span class="number">8000</span>;
+    loadServer() {
+        <span class="keyword">const</span> HTTP = <span class="built_in">require</span>(<span class="string">'http'</span>);
+        <span class="keyword">const</span> PORT = <span class="number">8000</span>;
 
-          HTTP.createServer(<span class="function">(<span class="params">request, response</span>) =&gt;</span> {
-               response.writeHead(<span class="number">200</span>, {<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>});
-               response.write(<span class="string">`Look at my website!`</span>);
-               response.end();
-          }).listen(PORT);
-     }
+        HTTP.createServer(<span class="function">(<span class="params">request, response</span>) =&gt;</span> {
+
+            <span class="keyword">let</span> httpHandler = <span class="function">(<span class="params">error, string, contentType</span>) =&gt;</span> {
+                <span class="keyword">if</span> (error) {
+                     response.writeHead(<span class="number">500</span>, {<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>});
+                     response.end(<span class="string">'An error has occurred: '</span> + error.message);
+                } <span class="keyword">else</span> <span class="keyword">if</span> (contentType.indexOf(<span class="string">'css'</span>) &gt;= <span class="number">0</span> || contentType.indexOf(<span class="string">'html'</span>) &gt;= <span class="number">0</span> || contentType.indexOf(<span class="string">'js'</span>) &gt;= <span class="number">0</span>) {
+                    response.writeHead(<span class="number">200</span>, {<span class="string">'Content-Type'</span>: contentType});
+                    response.end(string, <span class="string">'utf-8'</span>);
+                } <span class="keyword">else</span> {
+                    response.writeHead(<span class="number">200</span>, {<span class="string">'Content-Type'</span>: contentType});
+                    response.end(string, <span class="string">'binary'</span>);
+                }
+            };
+
+            <span class="keyword">if</span> (request.url.indexOf(<span class="string">'.css'</span>) &gt;= <span class="number">0</span>) {
+
+            } <span class="keyword">else</span> <span class="keyword">if</span> (request.url.indexOf(<span class="string">'.js'</span>) &gt;= <span class="number">0</span>) {
+
+            } <span class="keyword">else</span> <span class="keyword">if</span> (request.url.indexOf(<span class="string">'.html'</span>) &gt;= <span class="number">0</span>) {
+
+            } <span class="keyword">else</span> <span class="keyword">if</span> (request.url.indexOf(<span class="string">'.png'</span>) &gt;= <span class="number">0</span>) {
+
+            } <span class="keyword">else</span> {
+
+            }
+
+        }).listen(PORT);
+
+        render(path, contentType, callback, encoding) {
+            <span class="keyword">const</span> FS = <span class="built_in">require</span>(<span class="string">'fs'</span>);
+            FS.readFile(path, encoding ? encoding : <span class="string">'utf-8'</span>, (error, string) =&gt; {
+                callback(error, string, contentType);
+            });
+        }
+    }
 }
 
 <span class="built_in">module</span>.exports = app;
 </code></pre>
-<p>Whoa, whoa, whoa….. What’s all that response shenanigans? Well…., if you remember back to the earlier articles I asked you to read a few paragraphs up, you know that is how your little server responds back to the client web browser. <strong><a href="https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers" target="_blank" rel="external">response.writeHead</a></strong> writes the header stuff, <strong><a href="https://nodejs.org/api/http.html#http_response_write_chunk_encoding_callback" target="_blank" rel="external">response.write</a></strong> sends chunks of data back to the client browser. (In this case, just a simple string). <strong><a href="https://nodejs.org/api/http.html#http_response_end_data_encoding_callback" target="_blank" rel="external">response.end</a></strong> ‘hangs up the phone.’<br>Cool, cool. But what does that <strong>.listen(PORT)</strong> thingy do? It is the <a href="https://nodejs.org/api/http.html#http_server_listen_port_hostname_backlog_callback" target="_blank" rel="external">method</a> that <strong>http</strong> actually uses to listen for incoming requests from your buddies trying to check out your new web coding skills!  </p>
-<p>Time to test this baby out. Since it is a class file, we need a way to instantiate an object from it. This is a three (3) step process:  </p>
-<ol>
-<li><p>Edit your <strong>package.json</strong> created earlier to change the scripts section from:  </p>
-<pre><code class="javascript"><span class="string">"scripts"</span>: {
- <span class="string">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span>
-},
+<p>You’ll note that there is an instance method at the bottom of our code that’s responsible for actually <em>reading</em> the data off of the server hard drive by using the Node.js <strong><a href="https://nodejs.org/api/fs.html" target="_blank" rel="external">fs</a></strong> library and, specifically, its <strong><a href="https://nodejs.org/api/fs.html#fs_fs_readfile_file_options_callback" target="_blank" rel="external">readFile()</a></strong> method. The render function takes in a pad-ton of parameters: The path on our hard drive of the client request, the mime content type requested, a callback function (it will the the <strong>httpHandler</strong> function expression), and the encoding (<strong>binary</strong>, or <strong>utf-8</strong>) we’ll tell the client browser. The <strong>readFile()</strong> function’s parameters are a little more complicated. The first parameter is the path from above, then the next parameter is a <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator" target="_blank" rel="external">ternary</a></strong> that says “if no encoding is passed to me, use <strong>utf-8</strong> as my default”, and finally, we use an anonymous arrow callback function per the <strong>fs.readFile()</strong> spec. The callback allows the server to read the files from the hard drive asynchronously and give the results to our callback (<strong>httpHandler</strong>) that was passed in as a parameter to the render function.<br>Now we’re ready to finally fill in those if blocks with some action!  </p>
+<pre><code class="javascript"><span class="comment">// todo:</span>
+<span class="meta">
+"use strict"</span>;
+
+<span class="class"><span class="keyword">class</span> <span class="title">app</span> </span>{
+    <span class="keyword">constructor</span>() {
+        <span class="keyword">this</span>.loadServer();
+    }
+
+    loadServer() {
+        <span class="keyword">const</span> HTTP = <span class="built_in">require</span>(<span class="string">'http'</span>);
+        <span class="keyword">const</span> PORT = <span class="number">8000</span>;
+
+        HTTP.createServer(<span class="function">(<span class="params">request, response</span>) =&gt;</span> {
+
+               <span class="keyword">let</span> httpHandler = <span class="function">(<span class="params">error, string, contentType</span>) =&gt;</span> {
+                    <span class="keyword">if</span> (error) {
+                         response.writeHead(<span class="number">500</span>, {<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>});
+                         response.end(<span class="string">'An error has occurred: '</span> + error.message);
+                    } <span class="keyword">else</span> <span class="keyword">if</span> (contentType.indexOf(<span class="string">'css'</span>) &gt;= <span class="number">0</span> || contentType.indexOf(<span class="string">'html'</span>) &gt;= <span class="number">0</span> || contentType.indexOf(<span class="string">'js'</span>) &gt;= <span class="number">0</span>) {
+                         response.writeHead(<span class="number">200</span>, {<span class="string">'Content-Type'</span>: contentType});
+                         response.end(string, <span class="string">'utf-8'</span>);
+                    } <span class="keyword">else</span> {
+                         response.writeHead(<span class="number">200</span>, {<span class="string">'Content-Type'</span>: contentType});
+                         response.end(string, <span class="string">'binary'</span>);
+                    }
+               };
+
+            <span class="keyword">if</span> (request.url.indexOf(<span class="string">'.css'</span>) &gt;= <span class="number">0</span>) {
+                <span class="keyword">this</span>.render(request.url.slice(<span class="number">1</span>), <span class="string">'text/css'</span>, httpHandler, <span class="string">'utf-8'</span>);
+            } <span class="keyword">else</span> <span class="keyword">if</span> (request.url.indexOf(<span class="string">'.js'</span>) &gt;= <span class="number">0</span>) {
+                <span class="keyword">this</span>.render(request.url.slice(<span class="number">1</span>), <span class="string">'application/javascript'</span>, httpHandler, <span class="string">'utf-8'</span>);
+            } <span class="keyword">else</span> <span class="keyword">if</span> (request.url.indexOf(<span class="string">'/'</span>) &gt;= <span class="number">0</span>) {
+                <span class="keyword">this</span>.render(<span class="string">'public/views/index.html'</span>, <span class="string">'text/html'</span>, httpHandler, <span class="string">'utf-8'</span>);
+            } <span class="keyword">else</span> <span class="keyword">if</span> (request.url.indexOf(<span class="string">'.png'</span>) &gt;= <span class="number">0</span>) {
+                <span class="keyword">this</span>.render(request.url.slice(<span class="number">1</span>), <span class="string">'image/png'</span>, httpHandler, <span class="string">'binary'</span>);
+            } <span class="keyword">else</span> {
+                <span class="keyword">this</span>.render(<span class="string">`HEY! What you're looking for: It's not here!`</span>, <span class="string">'text/html'</span>, httpHandler, <span class="string">'utf-8'</span>);
+            }
+
+        }).listen(PORT);
+    }
+
+    render(path, contentType, callback, encoding) {
+        <span class="keyword">const</span> FS = <span class="built_in">require</span>(<span class="string">'fs'</span>);
+        FS.readFile(path, encoding ? encoding : <span class="string">'utf-8'</span>, (error, string) =&gt; {
+            callback(error, string, contentType);
+        });
+    }
+}
+
+<span class="built_in">module</span>.exports = app;
 </code></pre>
-<p>to:  </p>
-<pre><code class="javascript"><span class="string">"scripts"</span>: {
- <span class="string">"start"</span>: <span class="string">"node bin/server"</span>
-},
-</code></pre>
-</li>
-<li><p>Create a directory called <strong>bin</strong> in the root of our project.</p>
-</li>
-<li><p>Create a file called <strong>server</strong> in the bin directory that has the following IIFE:  </p>
-<pre><code class="javascript">(<span class="function"><span class="params">()</span> =&gt;</span> {
- <span class="keyword">const</span> APP = <span class="built_in">require</span>(<span class="string">'../app.js'</span>);
- <span class="keyword">new</span> APP();
-})();
-</code></pre>
-<p>Remember that <strong>module.exports = app;</strong> part at the bottom of your <strong>app.js</strong> file? This is how the <strong>server</strong> file can import it like a library and allow us to instantiate an object of it. :-)<br>All that beautiful code full of parenthesis in the server file is an anonymous arrow IIFE! Woot indeed.  </p>
-</li>
-</ol>
-<p>Start ‘er up! bring up the terminal in IntelliJ and type: <strong>npm start</strong>  You will see the following output:<br><figure class="figure"><img src="/stuff/capture2.png" alt="Screenshot"><figcaption class="figure__caption">Screenshot</figcaption></figure><br>Point Chrome at the following address:  <strong>127.0.0.1:8000</strong> and BAM - you should see:  Look at my website!  </p>
-<p>Whew….  </p>
-<p>Stop. I bet you only skimmed some of the above material. GO BACK AND DEEPLY READ the stuff you skimmed. I used to be the same way. I get it. But, really, go back and absorb everything.  </p>
+<p>Alrighty then! This code simply calls the <strong>render()</strong> method and uses the JavaScript <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice" target="_blank" rel="external">String.slice()</a></strong> function to send the path &amp; filename requested from the client browser (index.html, etc.) as the first parameter, then it passes <strong>render()</strong> the mime content type, the callback function (httpHandler, finally!), and the encoding we need to used based on the file requested. That’s it! You now have a fully operational battle station, er, web server! (Sorry, my inner Star Wars was coming through there).<br>We still have one more step to do before we can respond to requests. You have NO content on the hard drive to serve up! Please create a <strong>css</strong>, <strong>html</strong>, &amp; <strong>js</strong> file and put them in your web server app root directory. NOW you can fire it up and test it out!<br>If it works:<br><figure class="figure"><img src="/stuff/awesome.jpg" alt="Great Job!"><figcaption class="figure__caption">Great Job!</figcaption></figure></p>
+<p>If it does NOT work:<br><figure class="figure"><img src="/stuff/betterjob.jpg" alt="You&#39;re trying hard!"><figcaption class="figure__caption">You&#39;re trying hard!</figcaption></figure></p>
+<p>Heh, just kidding! Try hard to figure out what is broken. Remember to use <strong>console.log()</strong> to diagnose problems. Utilize the Chrome developer tools, and the Node.js output in the terminal window. </p>
+<p>Exercise, yay!</p>
 <blockquote>
-<p>Exercise time:  Change the output from your web server to give out formatted html around your output string. Surround your string with h1 tags and ensure it works in the browser.  </p>
+<p>Add support for jpeg images and a web page called about.html.</p>
 </blockquote>
-<p>If you prefer a non-class-based web server, see <a href="https://www.youtube.com/watch?v=U8XF6AFGqlc" target="_blank" rel="external">THIS</a> video.  </p>
-<h5 id="In-the-next-installment"><a href="#In-the-next-installment" class="headerlink" title="In the next installment"></a><a href="https://codeelegant.github.io/2017/03/17/Vanilla-Node-js-Webserver-2/">In the next installment</a></h5><p>We’ll add routes to our code and handle various mime types. In the 3rd &amp; final installment, we’ll add support for database handling, file I/O, and Ajax responding.  </p>
-<p>p.s. One of my students wanted a shout out in my blog, so:  <strong>Hi Nick!</strong></p>
+<p>Time for a philosphical discussion. By now you’ve heard of the terms <em><a href="https://expressjs.com/" target="_blank" rel="external">express.js</a></em>, or <em><a href="http://koajs.com/" target="_blank" rel="external">koa.js</a></em>, or other Frameworks. I’m sure there is a ratio of 1 billion:1 of people in favor of frameworks vs. coding it out in Node.js by hand. I’m not one of them. Look, I get that there are libraries out there to abtract away all of the hard stuff, but I’d rather get really good at the hard stuff. For example, I am on the Ski Patrol, and we have patrollers that swear by the latest and greatest skis, poles, boots, gloves, helmets, etc. But we also have patrollers that can ski in the glades on a pair of 2x4s duct-taped to their feet and look good doing it. They can do this because they are <em>Masters</em> of skiing, not the equipment. Please consider coding for the enjoyment of it and to move from apprentice to master. By all means, as you do A LOT more of this, start to add libraries like <strong><a href="https://nodejs.org/docs/latest/api/url.html" target="_blank" rel="external">url</a></strong> &amp; <strong><a href="https://www.npmjs.com/package/httpdispatcher" target="_blank" rel="external">httpdispatcher</a></strong> to make your life easier, but I encourge you to master vanilla Node.js first.  </p>
+<p>Well, that’s it for now. In the next &amp; and final installment, we’ll cover the <a href="http://www.embeddedjs.com/" target="_blank" rel="external">EJS</a> templating engine, and data handling with databases (<a href="http://stackabuse.com/nedb-a-lightweight-javascript-database/" target="_blank" rel="external">NeDB</a>) &amp; csv files.</p>
 
 	
 
