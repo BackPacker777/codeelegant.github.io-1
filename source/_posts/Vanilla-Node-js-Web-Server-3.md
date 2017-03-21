@@ -151,7 +151,10 @@ To do the page-bolt on technique I like so much, I simply created seperate heade
 
 To learn more about EJS, watch [THIS](https://www.youtube.com/watch?v=BmmJujNQvXw) video and read the documentation [HERE](http://www.embeddedjs.com/getting_started.html). No, **_REALLY_** do it! I chose EJS to teach with because, although venerable, it is VERY easy to grok. It will make it much easier for you to jump into React, Vue, or Angular by learning this trivial templating engine.
 
+##### Exercise time!
+>Create a seperate html page with _only_ a div of content. Use EJS tags in the index.ejs file to include the page you just made.
+
 #### On to file I/O
 
 Now that we have some folders, let's modify our **app.js** file to handle POST requests. What the heck is a POST request? Well, if you look at the [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) you'll notice that there are a whole bunch of http request types. You will probably only work with GET & POST 99.999% of the time. GET to get stuff from the server, and PUT to send stuff to the server, like filled-in form data.  
-
+I am going to cover two methods of file I/O. Reading/writing to .csv files using c-style for loops, and reading/writing to databases using NeDB.
