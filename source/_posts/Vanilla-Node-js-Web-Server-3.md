@@ -149,7 +149,7 @@ To do the page-bolt on technique I like so much, I simply created seperate heade
 <% include public/views/header.ejs %>
 ```
 
-To learn more about EJS, watch [THIS](https://www.youtube.com/watch?v=3Jz18kXCLwg) video and read the documentation [HERE](http://www.embeddedjs.com/getting_started.html). No, **_REALLY_** do it! I chose EJS to teach with because, although venerable, it is VERY easy to grok. It will make it much easier for you to jump into React, Vue, or Angular by learning this trivial templating engine.
+To learn more about EJS, watch [THIS](https://www.youtube.com/watch?v=BmmJujNQvXw) video and read the documentation [HERE](http://www.embeddedjs.com/getting_started.html). No, **_REALLY_** do it! I chose EJS to teach with because, although venerable, it is VERY easy to grok. It will make it much easier for you to jump into React, Vue, or Angular by learning this trivial templating engine.
 
 #### On to file I/O
 
