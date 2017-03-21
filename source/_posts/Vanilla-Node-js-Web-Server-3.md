@@ -47,8 +47,30 @@ At the top of the **loadServer()** method in your **app.js** file, create a cons
 ```javascript
 const EJS = require('ejs');
 ```
+Change the way we handle some content types like this:
+```javascript
+else if (contentType.indexOf('css') >= 0 || contentType.indexOf('js') >= 0) {
+	 response.writeHead(200, {'Content-Type': contentType});
+	 response.end(string, 'utf-8');
+} else if (contentType.indexOf('html') >= 0) {
+	 console.log(`Rendering EJS`);
+	 response.writeHead(200, {'Content-Type': contentType});
+	 response.end(EJS.render(string, {
+		  data: this.ejsData,
+		  filename: 'index.ejs'
+	 }));
+}
+```
 
-Now that we have some folders, let's modify our **app.js** file to handle POST requests. What the heck is a POST request? Well, if you look at the [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) you'll notice that there are a whole bunch of http request types. You will probably only work with GET & POST 99.999% of the time. GET to get stuff from the server, and PUT to send stuff to the server, like filled-in form data.  
+Finally, change your root route to this:
+
+```javascript
+else if (request.url.indexOf('/') >= 0) {
+	this.render('public/views/index.ejs', 'text/html', httpHandler, 'utf-8');
+}
+```
+
+Your entire **app.js** should look like this:  
 ```javascript  
 // todo:
 
@@ -115,3 +137,14 @@ class app {
 
 module.exports = app;
 ```
+
+What does this extra code do? We really only added a library call, changed the name of the file we render from index.html to index.ejs, and called the **render** static method from the **ejs** library, which 'turns on' EJS capability. Read about it [HERE](https://www.npmjs.com/package/ejs).
+
+To do the page-bolt on technique I like so much, I simply created seperate header.ejs & footer.ejs files with the top & bottom parts of a normal html page. I then use this code in my index.ejs file where I want their contents to be displayed. (Remember to look at the GitHub repositry code). The line looks loke this:
+
+```html
+<% include public/views/header.ejs %>
+```
+
+Now that we have some folders, let's modify our **app.js** file to handle POST requests. What the heck is a POST request? Well, if you look at the [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) you'll notice that there are a whole bunch of http request types. You will probably only work with GET & POST 99.999% of the time. GET to get stuff from the server, and PUT to send stuff to the server, like filled-in form data.  
+
