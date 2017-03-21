@@ -5,6 +5,8 @@ tags: node.js, web server, es6, http, mime
 categories: Crafting vanilla Node.js web server
 ---
 ## ! ! THIS POST IS NOT COMPLETE ! !
+I will be finishing during spring break 2017  
+
 #### JavaScript Templating & File I/O
 After completing [lesson 1](https://codeelegant.github.io/2017/03/16/Vanilla-Node-js-Webserver/), & [lesson 2](https://codeelegant.github.io/2017/03/17/Vanilla-Node-js-Webserver-2/), you have a web server that can serve static web pages on par with the very _excellent_ [http server](https://www.npmjs.com/package/http-server). WHAT!?!? You could have just used a library and had a canned web server without having to write all that code? Yes, it's true. That's not really why you're here though, is it? You are here to learn how to write code & to understand JavaScript & Node.js better.  
 
@@ -146,6 +148,10 @@ To do the page-bolt on technique I like so much, I simply created seperate heade
 ```html
 <% include public/views/header.ejs %>
 ```
+
+To learn more about EJS, watch [THIS](https://www.youtube.com/watch?v=3Jz18kXCLwg) video and read the documentation [HERE](http://www.embeddedjs.com/getting_started.html). No, **_REALLY_** do it! I chose EJS to teach with because, although venerable, it is VERY easy to grok. It will make it much easier for you to jump into React, Vue, or Angular by learning this trivial templating engine.
+
+#### On to file I/O
 
 Now that we have some folders, let's modify our **app.js** file to handle POST requests. What the heck is a POST request? Well, if you look at the [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) you'll notice that there are a whole bunch of http request types. You will probably only work with GET & POST 99.999% of the time. GET to get stuff from the server, and PUT to send stuff to the server, like filled-in form data.  
 
