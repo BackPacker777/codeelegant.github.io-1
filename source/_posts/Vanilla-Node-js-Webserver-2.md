@@ -5,6 +5,8 @@ tags: node.js, web server, es6, http, mime
 categories: Crafting vanilla Node.js web server
 ---
 
+#### Routing, mime types, and delivering file system content
+
 In the [1st lesson](https://codeelegant.github.io/2017/03/16/Vanilla-Node-js-Webserver/), we made a very basic web server. In fact all it did was respond to a client request with a simple string of text. When you think about it, that's still pretty neat because the client could have been anywhere in the world and transacted with the web server: The one **YOU** wrote, with your hand fingers!  
 As awesome as that is, we _probably_ want a little more functionality. In this lesson, we'll add some routes. That means when a client requests a specific resource from our server like a page a photos of our dog, we can respond with the correct data. We'll also add the ability to handle mime types whereby, if the client requests a non-plain text item like a photo, we can tell the browser how to display it to the user. If we didn't, the browser would display EVERYONES favorite picture:  
 ![](/stuff/noimage.png)  
