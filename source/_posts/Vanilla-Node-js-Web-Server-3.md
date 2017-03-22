@@ -322,7 +322,7 @@ The Ajax code allows us to open a POST request to the server, set the **request.
 It feels to me like I've gotten us into a 'How to draw an owl' situation....  
 ![](/stuff/drawowl.jpg)
 
-Please make sure you REALLY understand how the Ajax method talks to the server, how the server responds, and how the Ajax method handles the response. Also, make sure you grok **stringify** & **parse**, why we need them, & how to use them. USe these resources:
+Please make sure you REALLY understand how the Ajax method talks to the server, how the server responds, and how the Ajax method handles the response. Also, make sure you grok **stringify** & **parse**, why we need them, & how to use them. Use these resources:
 
 1. [Vanilla Ajax](https://www.sitepoint.com/guide-vanilla-ajax-without-jquery/)
 2. [Ajax guide on MDN](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started)
