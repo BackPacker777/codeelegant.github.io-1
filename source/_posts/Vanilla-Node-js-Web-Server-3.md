@@ -281,4 +281,40 @@ class DataHandler {
 
 module.exports = DataHandler;
 ```
-You should see **[JSON.parse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)** & **[JSON.stringify()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)** in the above code. If you peruse [lesson 1](https://codeelegant.github.io/2017/03/16/Vanilla-Node-js-Webserver/), you'll remember that all communication between the client DOM & the server has to be string. Stringify takes object data & turns it into a string to send, and parse unpacks the string back into its object form for use by the code. [Here](http://softwareengineering.stackexchange.com/questions/164094/why-does-javascript-use-json-stringify-instead-of-json-serialize) is a very good (but turbo-nerdy) explanation. All I am doing in the **DataHandler.js** class is accepting a user's email address, loading a user file from the hard drive into a multi-dimensional array, and comparing the email address submitted to any in the file. If I find one, I return the user data from the file to the DOM. If I don't I alert a message in the DOM stating they need to provide a valid email address. Easy-peasy, lemon-squeezy.
+You should see **[JSON.parse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)** & **[JSON.stringify()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)** in the above code. If you peruse [lesson 1](https://codeelegant.github.io/2017/03/16/Vanilla-Node-js-Webserver/), you'll remember that all communication between the client DOM & the server has to be string. Stringify takes object data & turns it into a string to send, and parse unpacks the string back into its object form for use by the code. [Here](http://softwareengineering.stackexchange.com/questions/164094/why-does-javascript-use-json-stringify-instead-of-json-serialize) is a very good (but turbo-nerdy) explanation. All I am doing in the **DataHandler.js** class is accepting a user's email address, loading a user file from the hard drive into a multi-dimensional array, and comparing the email address submitted to finalData[i][0] column in the MD array loaded from the .csv file. If I find one, I return the entirety of the user data from the MD array to the DOM. If I don't have a match, I alert a message in the DOM stating they need to provide a valid email address. Easy-peasy, lemon-squeezy.  
+
+I feel like we need an intermission here. How about a [fantastic documentary](https://www.youtube.com/watch?v=wbM2_-JeDuY) (Beware: some strong language in parts) about the Pink Floyd album _Wish you were here_? Yeah, I thought you'd like that.  
+
+Almost done with the csv part.
+
+here are the contents of my **users.csv** file in my data folder:
+
+```
+bates4e@gmail.com,3rd Base,Bates,Howard
+meow@kitty.com,Left Field,Kitty,Hello
+```
+
+The .csv file is the source of the hard drive data that we are iterating over to see if a user exists.
+
+Finally, we have to have some client-side Ajax code so the DOM can yak at the server properly. Mine looks like this:
+
+```javascript
+performAjax(requestNum, sendToNode, callback) {
+	let bustCache = '?' + new Date().getTime();
+	const XHR = new XMLHttpRequest();
+	XHR.open('POST', document.url + bustCache, true);
+	XHR.setRequestHeader('X-Requested-with', requestNum);
+	XHR.send(sendToNode);
+	XHR.onload = () => {
+		if (XHR.readyState == 4 && XHR.status == 200 && callback) {
+			return callback(XHR.responseText);
+		}
+	};
+}
+```
+
+The magic happens with the **[XMLHttpRequest()](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)**. _THIS_ is Ajax. Or Francis (just kidding).  
+1[](/stuff/deadpool.png)  
+Remember, to see the whole code, look at the **main.js** file in the [GitHub repository](https://github.com/CodeElegant/NodeWebServerLesson).  
+
+The Ajax code allows us to open a POST request to the server, set the **request.headers**, send the data, then handle the response back from the server with the **XHR.onload** thingy.
