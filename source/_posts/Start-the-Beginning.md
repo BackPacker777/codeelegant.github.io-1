@@ -20,6 +20,18 @@ I lament the fact that the college I teach programming at does not offer a _'too
 * Chrome Application: [Web server for Chrome](http://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb) - Really handy for viewing your static web files locally.
 * SCSS transpiler [Koala](http://koala-app.com/) - VERY easy SCSS to CSS transpiler (converts SCSS to CSS). I will cover this in a later post.
 
+##### Integrating Git & Intellij:
+1. Ensure you have Git installed on your computer (download & install Git for Windows if not using a Mac or Linux box). a. Choose basic start menu (registry-based), and run from windows command prompt.
+2. Ensure your GitHub account info is set in IntelliJ a. File -> Settings -> Version Control -> GitHub
+3. After you have your project created and made your initial edits go here: VCS -> Import into Version Control -> Create Git Repository…
+4. Ensure the root directory of your project is selected and choose OK.
+5. You will be returned to IntelliJ. In your left pane (project pane) right-click your root directory and choose: Git -> Add.
+6. Then on the menu bar choose: VCS -> Git -> Commit Directory.
+7. When the Commit Changes windows pops up, type a message in the “Commit Message” section then choose Commit at the bottom.
+8. If a Code Analysis window pops up, choose Commit.
+9. On the menu bar choose: VCS -> Import into Version Control -> Share Project on GitHub.
+10. When the pop-up appears, type a description and click Share.
+
 ### Sites
 
 * The PREMIER static learning resource on the whole of the internet (IMHO) is the [Mozilla Developer Network (MDN)](https://developer.mozilla.org/en-US/docs/Web). This should be your default reference.  

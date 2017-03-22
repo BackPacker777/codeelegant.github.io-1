@@ -331,3 +331,6 @@ Please make sure you REALLY understand how the Ajax method talks to the server, 
 5. [Ajax Reference Sheet](http://help.dottoro.com/ljspgwvf.php)
 
 You go through all of THAT material and you will be the **Sensei of Ajax** (feel free to put that on your résumé. Tell 'em I said so.)
+
+###### NeDB
+There is a lot of discussion about which database you should use for a web app. See [here](https://blog.daftcode.pl/hype-driven-development-3469fc2e9b22#.ba7omm7fq) & [here](https://blog.qmo.io/common-problems-when-developing-a-node-js-web-application/) for discussions. SQL or NoSQL. Meh, for our purposes it doesn't matter, but for production it does matter, so get frosty on which database you'll need.
