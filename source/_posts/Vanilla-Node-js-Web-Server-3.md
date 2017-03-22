@@ -79,56 +79,53 @@ Your entire **app.js** should look like this:
 
 "use strict";
 
-const DATA_HANDLER = require('./node/DataHandler');
-
 class app {
-	constructor() {
-        this.ejsData = null;
-        this.user = null;
-		this.loadServer();
-	}
-	
-	loadServer() {
-		const HTTP = require('http');
-		const PORT = 8005;
-        const EJS = require('ejs');
-		
-		HTTP.createServer((request, response) => {
+     constructor() {
+          this.ejsData = null;
+          this.user = null;
+          this.loadServer();
+     }
 
-		   let httpHandler = (error, string, contentType) => {
-				if (error) {
-					 response.writeHead(500, {'Content-Type': 'text/plain'});
-					 response.end('An error has occurred: ' + error.message);
-				} else if (contentType.indexOf('css') >= 0 || contentType.indexOf('js') >= 0) {
-					 response.writeHead(200, {'Content-Type': contentType});
-					 response.end(string, 'utf-8');
-				} else if (contentType.indexOf('html') >= 0) {
-					 console.log(`Rendering EJS`);
-					 response.writeHead(200, {'Content-Type': contentType});
-					 response.end(EJS.render(string, {
-						  data: this.ejsData,
-						  filename: 'index.ejs'
-					 }));
-				} else {
-					 response.writeHead(200, {'Content-Type': contentType});
-					 response.end(string, 'binary');
-				}
-		   };
+     loadServer() {
+          const HTTP = require('http');
+          const PORT = 8005;
+          const EJS = require('ejs');
 
-			if (request.url.indexOf('.css') >= 0) {
-				this.render(request.url.slice(1), 'text/css', httpHandler, 'utf-8');
-			} else if (request.url.indexOf('.js') >= 0) {
-			    this.render(request.url.slice(1), 'application/javascript', httpHandler, 'utf-8');
-		    } else if (request.url.indexOf('.png') >= 0) {
-				this.render(request.url.slice(1), 'image/png', httpHandler, 'binary');
-			} else if (request.url.indexOf('/') >= 0) {
-				this.render('public/views/index.ejs', 'text/html', httpHandler, 'utf-8');
-			} else {
-				this.render(`HEY! What you're looking for: It's not here!`, 'text/html', httpHandler, 'utf-8');
-			}
-			
-		}).listen(PORT);
-	}
+          HTTP.createServer((request, response) => {
+
+               let httpHandler = (error, string, contentType) => {
+                    if (error) {
+                         response.writeHead(500, {'Content-Type': 'text/plain'});
+                         response.end('An error has occurred: ' + error.message);
+                    } else if (contentType.indexOf('css') >= 0 || contentType.indexOf('js') >= 0) {
+                         response.writeHead(200, {'Content-Type': contentType});
+                         response.end(string, 'utf-8');
+                    } else if (contentType.indexOf('html') >= 0) {
+                         response.writeHead(200, {'Content-Type': contentType});
+                         response.end(EJS.render(string, {
+                              data: this.ejsData,
+                              filename: 'index.ejs'
+                         }));
+                    } else {
+                         response.writeHead(200, {'Content-Type': contentType});
+                         response.end(string, 'binary');
+                    }
+               };
+
+               if (request.url.indexOf('.css') >= 0) {
+                    this.render(request.url.slice(1), 'text/css', httpHandler, 'utf-8');
+               } else if (request.url.indexOf('.js') >= 0) {
+                    this.render(request.url.slice(1), 'application/javascript', httpHandler, 'utf-8');
+               } else if (request.url.indexOf('.png') >= 0) {
+                    this.render(request.url.slice(1), 'image/png', httpHandler, 'binary');
+               } else if (request.url.indexOf('/') >= 0) {
+                    this.render('public/views/index.ejs', 'text/html', httpHandler, 'utf-8');
+               } else {
+                    this.render(`HEY! What you're looking for: It's not here!`, 'text/html', httpHandler, 'utf-8');
+               }
+
+          }).listen(PORT);
+     }
 
      render(path, contentType, callback, encoding) {
           const FS = require('fs');
@@ -158,3 +155,130 @@ To learn more about EJS, watch [THIS](https://www.youtube.com/watch?v=BmmJujNQvX
 
 Now that we have some folders, let's modify our **app.js** file to handle POST requests. What the heck is a POST request? Well, if you look at the [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) you'll notice that there are a whole bunch of http request types. You will probably only work with GET & POST 99.999% of the time. GET to get stuff from the server, and PUT to send stuff to the server, like filled-in form data.  
 I am going to cover two methods of file I/O. Reading/writing to .csv files using c-style for loops, and reading/writing to databases using NeDB.
+
+We need to modify our **app.js** file to look like this:
+
+```javascript
+// todo:
+
+"use strict";
+
+const DATA_HANDLER = require('./node/DataHandler');
+
+class app {
+     constructor() {
+          this.ejsData = null;
+          this.user = null;
+          this.loadServer();
+     }
+
+     loadServer() {
+          const HTTP = require('http');
+          const PORT = 8005;
+          const EJS = require('ejs');
+
+          HTTP.createServer((request, response) => {
+
+               let httpHandler = (error, string, contentType) => {
+                    if (error) {
+                         response.writeHead(500, {'Content-Type': 'text/plain'});
+                         response.end('An error has occurred: ' + error.message);
+                    } else if (contentType.indexOf('css') >= 0 || contentType.indexOf('js') >= 0) {
+                         response.writeHead(200, {'Content-Type': contentType});
+                         response.end(string, 'utf-8');
+                    } else if (contentType.indexOf('html') >= 0) {
+                         response.writeHead(200, {'Content-Type': contentType});
+                         response.end(EJS.render(string, {
+                              data: this.ejsData,
+                              filename: 'index.ejs'
+                         }));
+                    } else {
+                         response.writeHead(200, {'Content-Type': contentType});
+                         response.end(string, 'binary');
+                    }
+               };
+
+               if (request.method === 'POST') {
+                    if (request.headers['x-requested-with'] === 'XMLHttpRequest0') {
+                         request.on('data', (data) => {
+                              this.user = DATA_HANDLER.handleUserData(data.toString('utf8'));
+                              if (this.user !== 'false') {
+                                   response.writeHead(200, {'content-type': 'application/json'});
+                                   response.end(this.user);
+                              } else {
+                                   response.writeHead(200, {'content-type': 'text/plain'});
+                                   response.end('false');
+                              }
+                         });
+                    } else {
+                         response.writeHead(405, "Method not supported", {'Content-Type': 'text/html'});
+                         response.end('<html><head><title>405 - Method not supported</title></head><body><h1>Method not supported.</h1></body></html>');
+                    }
+               } else if (request.url.indexOf('.css') >= 0) {
+                    this.render(request.url.slice(1), 'text/css', httpHandler, 'utf-8');
+               } else if (request.url.indexOf('.js') >= 0) {
+                    this.render(request.url.slice(1), 'application/javascript', httpHandler, 'utf-8');
+               } else if (request.url.indexOf('.png') >= 0) {
+                    this.render(request.url.slice(1), 'image/png', httpHandler, 'binary');
+               } else if (request.url.indexOf('/') >= 0) {
+                    this.render('public/views/index.ejs', 'text/html', httpHandler, 'utf-8');
+               } else {
+                    this.render(`HEY! What you're looking for: It's not here!`, 'text/html', httpHandler, 'utf-8');
+               }
+
+          }).listen(PORT);
+     }
+
+     render(path, contentType, callback, encoding) {
+          const FS = require('fs');
+          FS.readFile(path, encoding ? encoding : 'utf-8', (error, string) => {
+               callback(error, string, contentType);
+          });
+     }
+}
+
+module.exports = app;
+```
+Please note that we've added a library import for our DataHandler.js class we will write. We also now have a POST handler section. We will use the client-side JavaScript to send the appropriate **request.headers** info so our app knows how to handle the client requests.
+
+Now, write a separate class to handle the actual file I/0. Something like this:
+```javascript
+//   todo:
+
+"use strict";
+
+const FS = require('fs');
+
+class DataHandler {
+
+     static handleUserData(data) {
+          data = JSON.parse(data);
+          const FILE_PATH = 'data/users.csv';
+          let users = FS.readFileSync(FILE_PATH, 'utf8');
+          let user = {};
+          const COLUMNS = 4;
+          let tempArray, finalData = [];
+          tempArray = users.split(/\r?\n/); //remove newlines
+          for (let i = 0; i < tempArray.length; i++) {
+               finalData[i] = tempArray[i].split(/,/).slice(0, COLUMNS);
+          }
+          for (let i = 0; i < finalData.length; i++) {
+               if (data === finalData[i][0]) {
+                    user = JSON.stringify({
+                         'email': finalData[i][0],
+                         'position': finalData[i][1],
+                         'lastName': finalData[i][2],
+                         'firstName': finalData[i][3]
+                    });
+                    break;
+               } else {
+                    user = 'false';
+               }
+          }
+          return user;
+     }
+}
+
+module.exports = DataHandler;
+```
+You should see **JSON.parse()** & **JSON.stringify()** in the above code. If you peruse [lesson 1](), you'll remember that all communication between the client DOM & the server has to be string. Stringify takes object data & turns it into a string to send, and parse unpacks the string back into its object form for use by the code. [Here](http://softwareengineering.stackexchange.com/questions/164094/why-does-javascript-use-json-stringify-instead-of-json-serialize) is a very good (but turbo-nerdy) explanation. All I am doing in the **DataHandler.js** class is accepting a user's email address, loading a user file from the hard drive into a multi-dimensional array, and comparing the email address submitted to any in the file. If I find one, I return the user data from the file to the DOM. If I don't I alert a message in the DOM stating they need to provide a valid email address. Easy-peasy, lemon-squeezy.
