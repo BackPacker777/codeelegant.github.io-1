@@ -377,3 +377,4 @@ This imports the Formidable library and allows us to _easily_ get all of the dat
 > Add the ability for your app to _create_ a new user entry in your .csv file (hint: fs writeFile()). Next, create functionality for querying your database and return all the results to a new div.
 
 ## Thanks for reading!
+If you need anything expanded on or clarified, feel free to ask in the discussions below.
