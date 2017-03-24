@@ -315,9 +315,7 @@ The magic happens with the **[XMLHttpRequest()](https://developer.mozilla.org/en
 ![](/stuff/deadpool.png)
 Remember, to see the whole code, look at the **main.js** file in the [GitHub repository](https://github.com/CodeElegant/NodeWebServerLesson).  
 
-The Ajax code allows us to open a POST request to the server, set the **request.headers**, send the data, then handle the response back from the server with the **XHR.onload** thingy. The **app.js** file receives & handles the request with the
- ```javascript if (request.method === 'POST') {} ```
- section.  
+The Ajax code allows us to open a POST request to the server, set the **request.headers**, send the data, then handle the response back from the server with the **XHR.onload** thingy. The **app.js** file receives & handles the request with the **javascript if (request.method === 'POST') {}** section.  
 
 It feels to me like I've gotten us into a 'How to draw an owl' situation....  
 ![](/stuff/drawowl.jpg)
