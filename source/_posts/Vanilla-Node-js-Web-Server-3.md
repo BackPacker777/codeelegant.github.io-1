@@ -4,8 +4,6 @@ date: 2017-03-20 06:54:45
 tags: node.js, web server, es6, http, mime
 categories: Crafting vanilla Node.js web server
 ---
-## ! ! THIS POST IS NOT COMPLETE ! !
-I will be finishing during spring break 2017  
 
 #### JavaScript Templating & File I/O
 After completing [lesson 1](https://codeelegant.github.io/2017/03/16/Vanilla-Node-js-Webserver/), & [lesson 2](https://codeelegant.github.io/2017/03/17/Vanilla-Node-js-Webserver-2/), you have a web server that can serve static web pages on par with the very _excellent_ [http server](https://www.npmjs.com/package/http-server). WHAT!?!? You could have just used a library and had a canned web server without having to write all that code? Yes, it's true. That's not really why you're here though, is it? You are here to learn how to write code & to understand JavaScript & Node.js better.  
@@ -333,7 +331,49 @@ Please make sure you REALLY understand how the Ajax method talks to the server, 
 You go through all of THAT material and you will be the **Sensei of Ajax** (feel free to put that on your résumé. Tell 'em I said so.)
 
 ##### Exercise
-> Move your **app.js** render method to the **DataHandler.js** class. Additionally, change the **handleUserData()** method on your **DataHandler.js** class to be asynchronous instead of synchronous. HINT: Read the **[fs](https://nodejs.org/api/fs.html)** api & find the right method. Then you simply need to use a callback that you pass the results to instead of the return statement we used previously. VERY LITTLE CODE needs to change to accomplish this. Use **console.log()** to help you figure this out.
+> Move your **app.js** render method to the **DataHandler.js** class. Additionally, change the **handleUserData()** method on your **DataHandler.js** class to open the file asynchronously instead of synchronously. HINT: Read the **[fs](https://nodejs.org/api/fs.html)** api & find the right method. Then you simply need to use a callback that you pass the results to instead of the return statement we used previously. VERY LITTLE CODE needs to change to accomplish this. Use **console.log()** to help you figure this out.
 
-###### NeDB
-There is a lot of discussion about which database you should use for a web app. See [here](https://blog.daftcode.pl/hype-driven-development-3469fc2e9b22#.ba7omm7fq) & [here](https://blog.qmo.io/common-problems-when-developing-a-node-js-web-application/) for discussions. SQL or NoSQL. Meh, for our purposes it doesn't matter, but for production it does matter, so get frosty on which database you'll need.
+##### NeDB
+There is a lot of discussion about which database you should use for a web app. See [here](https://blog.daftcode.pl/hype-driven-development-3469fc2e9b22#.ba7omm7fq) & [here](https://blog.qmo.io/common-problems-when-developing-a-node-js-web-application/) for discussions. SQL or NoSQL. Meh, for our purposes it doesn't matter, but for production it does matter, so get frosty on which database you'll need. [This Reddit Answer](https://www.reddit.com/r/node/comments/2lmitx/what_is_the_best_database_stack_for_node_js/clzycpc/) is a good starting point.  
+I am going to show you a very easy version of a Mongo-esque database engine called NeDB. [Here](https://github.com/louischatriot/nedb) is the NeDB documentation, and [here](http://10minbasics.com/nedb-basics/) Is a nice little tutorial.  
+
+You will need to write a little form ejs file and include it in your **index.ejs**. See the [project code](https://github.com/CodeElegant/NodeWebServerLesson) on GitHub for an example of what I'm talking about. Make sure your client-side JavaScript handles the form and sends it back to the server. Hint, you'll want to use the [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) web API. It's part of JavaScript, so you'll love it.
+
+We need to add a few lines to our **DataHandler.js** class to work with our database:
+```javascript
+const DATASTORE = require('nedb');
+const DB = new DATASTORE({ filename: 'data/log_db.json', autoload: true });
+```
+This code imports the library, creates an object of the library, then loads our database file from the hard drive. If the file doesn't yet exist, guess what, IT MAKES IT FOR US! Awesome.
+
+Next, we add a static method that calls the nedb library instance method **insert** which simply pushes the data received from the DOM into a new row of our database file:
+
+```javascript
+static addData(data) {
+     DB.insert(data);
+}
+```
+
+Then we need to modify our **app.js** to add this to the POST section of our **createServer()** method:
+```javascript
+else if (request.headers['x-requested-with'] === 'XMLHttpRequest1') {
+	const FORMIDABLE = require('formidable');
+     let formData = {};
+     new FORMIDABLE.IncomingForm().parse(request).on('field', (field, name) => {
+          formData[field] = name;
+     }).on('error', (err) => {
+          next(err);
+     }).on('end', () => {
+          DATA_HANDLER.addData(formData);
+          formData = JSON.stringify(formData);
+          response.writeHead(200, {'content-type': 'application/json'});
+          response.end(formData);
+     });
+}
+```
+This imports the Formidable library and allows us to _easily_ get all of the data from our form that's been submitted as key/value pairs. Pop quiz: If I wanted to know what the **incomingForm()** method is doing or what OTHER methods I could use with Formidable, where would I look....? If you guessed [HERE](https://www.npmjs.com/package/formidable), you were right!  
+
+##### Final Exercise
+> Add the ability for your app to _create_ a new user entry in your .csv file (hint: fs writeFile()). Next, create functionality for querying your database and return all the results to a new div.
+
+## Thanks for reading!
