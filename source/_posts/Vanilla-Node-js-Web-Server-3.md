@@ -30,9 +30,9 @@ We will need to update our **package.json** file so that npm can install some li
   "author": "Howard Bates",
   "license": "MIT",
   "dependencies": {
-    "ejs": "latest",
-    "formidable": "latest",
-    "nedb": "latest"
+    "ejs": "^2.5.6",
+    "formidable": "^1.1.1",
+    "nedb": "^1.8.0"
   }
 }
 ```
