@@ -21,6 +21,7 @@ I lament the fact that the college I teach programming at does not offer a _'too
 * SCSS transpiler [Koala](http://koala-app.com/) - VERY easy SCSS to CSS transpiler (converts SCSS to CSS). I will cover this in a later post.
 
 ##### Integrating Git & Intellij:
+
 1. Ensure you have Git installed on your computer (download & install Git for Windows if not using a Mac or Linux box). a. Choose basic start menu (registry-based), and run from windows command prompt.
 2. Ensure your GitHub account info is set in IntelliJ a. File -> Settings -> Version Control -> GitHub
 3. After you have your project created and made your initial edits go here: VCS -> Import into Version Control -> Create Git Repository…

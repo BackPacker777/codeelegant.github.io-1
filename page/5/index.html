@@ -33,7 +33,7 @@
 
 	<article>
 	
-		<h1><a href="/2017/03/15/Extending-HTML5-CSS3/">Extending HTML5 &amp; CSS3</a></h1>
+		<h1><a href="/2017/03/15/Beginning-With-JavaScript/">Beginning With JavaScript</a></h1>
 	
 	<div class="article__infos">
 		<span class="article__date">03-15-2017</span><br />
@@ -44,15 +44,40 @@
 	
 
 	
-		<p>Now that you are an expert with HTML5 tags, CSS3 selectors, and project organization, let’s look at extending our toolbox with some helpful tools &amp; add-ons.</p>
+		<p>First things first. I <strong><em>HIGHLY</em></strong> recommend that you purchase this book: <a href="https://www.amazon.com/Learning-JavaScript-Essentials-Application-Development/dp/1491914912/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1489582493&amp;sr=1-1&amp;keywords=learning+javascript" target="_blank" rel="external">Learning JavaScript</a> &amp; its companion site with errata <a href="http://shop.oreilly.com/product/0636920035534.do" target="_blank" rel="external">HERE</a> (Clears up a lot of the negative review complaints). Additionally, I will recommend the <a href="https://github.com/getify/You-Dont-Know-JS" target="_blank" rel="external">“You don’t know JS”</a> free online books as great resources to help you learn JavaScript. I will link to specific chapters for various topics below.</p>
+<p>I teach an Introduction to Programming Logic class for a community college as well as for a semester at our high school. I use JavaScript for <em>this</em> class only insofar as to allow the students to test their algorithms and understand the coding process. I don’t teach any language features other than what are strictly needed to perform the coding projects, for example the library <code>readline-sync</code> so they can read input from the command line. This is the order I use for my students, over a 16-week period:</p>
 <ul>
-<li>First up are web fonts &amp; icons. <a href="https://frontendmasters.gitbooks.io/front-end-handbook-2017/content/learning/fonts.html" target="_blank" rel="external">HERE</a> is the starting point for learning. <a href="http://fontawesome.io/" target="_blank" rel="external">Font Awesome</a> is a good resource too. You use these to add flair to your web app.</li>
-<li>Next is <a href="http://sass-lang.com/guide" target="_blank" rel="external">Sass/SCSS</a>. Sass extends CSS to make it more logical, easier to read, &amp; easier to use. Sadly, browsers can’t understand the Sass lingo, so you’ll have to transpile it into CSS3. The tool I recommend is <a href="http://koala-app.com/" target="_blank" rel="external">Koala</a>. Learning the basics of Sass can be found <a href="http://callmenick.com/post/an-introduction-to-sass-scss" target="_blank" rel="external">HERE</a> &amp; <a href="https://www.youtube.com/watch?v=sCbXTrsl7NU&amp;list=PL6gx4Cwl9DGBxQO2r_kmxn-0UqL_Rkj0t&amp;index=1" target="_blank" rel="external">HERE</a>.</li>
-<li>Now, we’ll look at CSS frameworks. Writing CSS is tedious and frustrating. Positioning, sizing, and centering things makes me want to drink. A lot. A framework is a library of recipes that have been cooked for you. All you have to do is put a reference to the library in the <code>&lt;head&gt;</code> portion of your HTML and viola! You access the framework functionality by adding <code>class=&quot;something&quot;</code> to any of your HTML elements and it will be styled by the framework. Each framework has a reference page to explain each class keyword you can utilize. Good frameworks will be mobile first &amp; ultra-responsive. The good list: <a href="http://foundation.zurb.com/" target="_blank" rel="external">Foundation</a>, <a href="http://getbootstrap.com/" target="_blank" rel="external">Bootstrap</a>, <a href="https://purecss.io/" target="_blank" rel="external">Pure</a>, &amp; <a href="http://getskeleton.com/" target="_blank" rel="external">Skeleton</a>.</li>
-<li>Speaking of responsive, <a href="http://blog.teamtreehouse.com/modern-field-guide-responsive-web-design" target="_blank" rel="external">HERE</a> is a good article to teach you about this method of mobile 1st, auto-sizing development technique. <a href="https://www.udemy.com/build-responsive-website-designs-with-html5-and-css/" target="_blank" rel="external">HERE</a> is a free course. For fluid fonts, see <a href="https://css-tricks.com/viewport-sized-typography/" target="_blank" rel="external">THIS</a>. <a href="http://learnlayout.com/" target="_blank" rel="external">HERE</a> is a nice layout tutorial. Please remember to add this to the <code>&lt;head&gt;</code> portion of your page:  <code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</code> to ensure responsiveness.</li>
-<li>UX - User eXperience. Learn how to have an eye for design as you develop your web apps. <a href="https://medium.com/@limedaring/design-for-non-designers-part-1-6559ed93ff91#.h2q6wlert" target="_blank" rel="external">THIS</a> is a great article.</li>
+<li>Code layout - Simply how to format each program file they will turn in for grading. I teach four sections: 1. Comment header, pragmas, &amp; library imports; 2. Global variable declarations &amp; constant declarations/initializations; 3. dispatching section using a main function; 4. All methods - Mutators &amp; workers. Every project my students turn in follow that code layout pattern.</li>
+<li>Syntax and style - How we will format the code and what the language reserved words are.</li>
+<li>Comments - Single-line, multi-line, and JSDoc.</li>
+<li>Variables, constants, &amp; scope - Data type, declaring, &amp; initializing.</li>
+<li>Operators - &lt;, &gt;, ===, !==, &lt;=, &gt;=, arithmetic: <strong> + - * / % ** </strong></li>
+<li>Synchronous functions - How to modularize their code into smaller, cohesive chunks. This includes how to use dispatching with a main function.</li>
+<li>Parameters - How to pass &amp; receive values into functions.</li>
+<li>Selection logic - If, else if, else.</li>
+<li>Boolean logic - AND (&amp;&amp;), OR (||) , NOT (!).</li>
+<li>Recursion - How to do it, why to limit it, and tail recursion.</li>
+<li>Looping - While, c-style for, ‘for of’, nesting loops, break &amp; continue.</li>
+<li>Regular expressions - Primarily used for the next step.</li>
+<li>Input validation, sanitization, &amp; distillation.</li>
+<li>Basic collections - Single &amp; multi-dimensional arrays, maps, &amp; sorting.</li>
+<li>File I/O - How to read &amp; write data to permanent storage.</li>
 </ul>
-<p>Lot’s to read &amp; do on that list, I’d say about <strong>40</strong> hours. Good luck &amp; happy coding!</p>
+<p>I have them download &amp; use Node.js to do all their projects so that we aren’t dealing with web browsers. It’s trivial for my students to use IntelliJ to write their code, then run it directly from the toolbar to see their output! Good stuff. For my web dev classes, we go WAYYY more in depth with actual JavaScript on bot the front &amp; back ends and I will cover that in the next posts.</p>
+<p>Here are the list of learning resources I use (You don’t have to do every one, but it wouldn’t hurt to at least skim what you don’t go in depth with):</p>
+<ol>
+<li>Code layout &amp; syntax/style - I provide this <a href="https://youtu.be/K-RwRTeB8Qs" target="_blank" rel="external">VIDEO</a> for my students.</li>
+<li><a href="https://openclassrooms.com/courses/learn-the-basics-of-javascript" target="_blank" rel="external">JavaScript Course</a></li>
+<li><a href="https://youtu.be/6Xp8pkkRt20" target="_blank" rel="external">My video on selection logic</a></li>
+<li><a href="https://www.udacity.com/course/javascript-basics--ud804" target="_blank" rel="external">A nice JS Basics course</a></li>
+<li><a href="https://watchandcode.com/" target="_blank" rel="external">An alternative take on learning JS</a></li>
+<li>Finally, Microsoft’s <a href="https://mva.microsoft.com/en-us/training-courses/javascript-fundamentals-for-absolute-beginners-14194?l=DmF3TY1eB_9500115888" target="_blank" rel="external">take on it</a>, which is actually very good! (I personally loathe jQuery, so I can’t recommend those parts at the end.)</li>
+<li>Regular expressions - For your library, I would recommend these two books: <a href="https://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124" target="_blank" rel="external"><em>Mastering Regular Expressions</em></a> + <a href="http://shop.oreilly.com/product/9780596528126.do" target="_blank" rel="external">Errata</a> &amp; <a href="https://www.amazon.com/Regular-Expressions-Cookbook-Solutions-Programming/dp/1449319432" target="_blank" rel="external"><em>Regular Expressions Cookbook</em></a> + <a href="http://shop.oreilly.com/product/0636920023630.do" target="_blank" rel="external">Errata</a>. <a href="https://code.tutsplus.com/tutorials/you-dont-know-anything-about-regular-expressions-a-complete-guide--net-7869" target="_blank" rel="external">THIS</a> is a great tutorial, <a href="https://regex101.com/" target="_blank" rel="external">THIS</a> is a great regex tester, &amp; <a href="https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/" target="_blank" rel="external">THIS</a> is a great cheat sheet.</li>
+<li>File I/O <a href="/stuff/fileIO.txt">demo code</a>. Also notice the input validation.</li>
+<li>Remember to utilize the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="external">MDN</a>.</li>
+<li>If you get bored, try <a href="https://www.codecademy.com/courses/learn-javascript" target="_blank" rel="external">Codecademy!</a></li>
+</ol>
+<p>That is a TREMENDOUS amount of learning material to get you up &amp; coding with JavaScript. There is probably <strong>200</strong> hours of stuff on this page. Sorry about that!</p>
 
 	
 
