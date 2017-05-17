@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#33474d">
+	<title>Elegant Code</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	
+</head>
+
+<body>
+
+	<header class="header">
+		<nav class="header__nav">
+			
+				<a href="/archives" class="header__link">Archive</a>
+			
+				<a href="/tags" class="header__link">Tags</a>
+			
+		</nav>
+		<h1 class="header__title"><a href="/">Elegant Code</a></h1>
+		<h2 class="header__subtitle">Getting better @ modern web dev</h2>
+	</header>
+
+	<main>
+		
+	<span class="different-posts different-posts_earlier">📖 <a href="/page/10">earlier posts</a> 📖</span>
+
+
+
+
+	<article>
+	
+		<h1><a href="/2017/03/13/Elegant-Code/">Elegant Code</a></h1>
+	
+	<div class="article__infos">
+		<span class="article__date">03-13-2017</span><br />
+		
+		
+	</div>
+
+	
+
+	
+		<h4 id="Attempting-to-raise-coding-skills-from-high-intermediate-to-high"><a href="#Attempting-to-raise-coding-skills-from-high-intermediate-to-high" class="headerlink" title="Attempting to raise coding skills from high-intermediate to high"></a>Attempting to raise coding skills from high-intermediate to high</h4><p>When I migrated my Introduction to Programming classes from Perl to Node.js, I had a slightly moderate learning curve.<br>I also moved my AP CompSci classes away from Java to Modern Web Development. I had dabbled in web development back in the 90’s and stopped about the time frames were a thing. But now….. HOLY COW! Modern web dev is HUGE. A few things were immediately apparent about the current state of affairs:  </p>
+<ul>
+<li>Functional programming is difficult to grok, so people keep making frameworks &amp; such to abstract away the hard, tedious job of coding.</li>
+<li>Half the people lament the fact that there are so many frameworks and the other half say ‘you must not write enterprise-class software<br>or you’d understand the need for all of this flux!’</li>
+<li>Heck, there are even small divisions on whether JavaScript should still be used by the browsers as the defacto language!  </li>
+</ul>
+<p>I don’t have an opinion on the hot-mess state of affairs, but I did need to distill out what I felt was important to learn.<br>This is the list I came up with:  </p>
+<ul>
+<li>IDE - IntelliJ Ultimate &amp; Notepad++ with plugins</li>
+<li>Git/Github</li>
+<li>HTML5 with all the meta tag goodness for responsiveness</li>
+<li>Markdown</li>
+<li>CSS3 (media queries, fluid text &amp; images, responsiveness) mobile 1st…</li>
+<li>SCSS</li>
+<li>CSS FrameWork (Foundation, Pure, Bootstrap, &amp; Skeleton are great examples)</li>
+<li>ES6 JavaScript (ESPECIALLY event listening/handling)</li>
+<li>Regular expressions</li>
+<li>Node.js (this is just JavaScript but modules, NPM, &amp; libraries are essential knowledge)  </li>
+</ul>
+<p>Everything on the above list is what <strong><em>I</em></strong> would consider foundational, imperative knowledge. But wait, there’s more. Everything on the next list is important too, but it starts to become more difficult and opinionated:  </p>
+<ul>
+<li>A solid understanding of http requests, responses, request types, mime types, and valid response codes</li>
+<li>A solid understanding of functional programming (first class functions, pure functions, IIFEs, closures, function expressions vs. function declarations)</li>
+<li>A solid understanding of Ajax &amp; JSON with stringify &amp; parse</li>
+<li>Writing a pure Node.js web server with no frameworks, including routing &amp; mime type handling</li>
+<li>A templating engine. I chose EJS for it’s simplicity</li>
+<li>File I/O with Ajax, CSV, &amp; databses (I chose NeDB for Mongo-like syntax at a millionith of the overhead)</li>
+<li>Progressive web app methodology (https, manifest.json, service worker, &amp; favicons)</li>
+<li><a href="http://firebase.google.com" target="_blank" rel="external">Firebase</a></li>
+<li><a href="http://www.heroku.com" target="_blank" rel="external">Heroku</a></li>
+</ul>
+<p>As I began my learning journey, I had many obstacles. The main one was my OCD personality. When I code, I prefer to do it using industry best-practice standards. Learning modern web development using the web is not very conducive to this because of all the bad or outdated material out there. Just filtering the web content is a major chore and it was one that I tried my best to sheild my students from by curating the best of the best and linking what I found on our LMS (learning management system).</p>
+<p>If I were to rank skill with a particular subject, I would probably do it like this:  </p>
+<ul>
+<li><strong><em>Unskilled</em></strong></li>
+<li>Low</li>
+<li>Intermediate-low</li>
+<li>Upper-low</li>
+<li>Lower-intermediate</li>
+<li>Intermediate</li>
+<li>Upper-intermediate</li>
+<li>Lower-high</li>
+<li>Intermediate-high</li>
+<li>High</li>
+<li><strong><em>Expert</em></strong></li>
+</ul>
+<p>I feel that after two years of working my way through the learning process, I am at the high-intermediate plateau. I can read &amp; understand most standard code. I can extemporaneously write a progressive web app &amp; have it hosted on Heroku. I can easily help my students with their coding projects. Where I feel like I’m lacking: Understanding how to implement Oauth2, refined design patterns to optimize my applications, ES6 symbols &amp; promises, and finally, a good eye for UX design.  </p>
+<p>As I tackle the things I need to work on, I will go back and write these web logs to present the material I’ve curated for my students in an effort to help the next people that need to dive in from the top.</p>
+
+	
+
+	
+
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'https-codeelegant-github-io'; // required: replace example with your forum shortname
+//		var disqus_developer = 1; // Comment out when the site is live
+          var disqus_identifier = "{{ page.url }}";
+
+		/* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+
+
+
+
+
+	<span class="different-posts">📕 end of posts 📕</span>
+
+
+	</main>
+
+	<footer class="footer">
+	<div class="footer-content">
+		
+	      <div class="footer__element">
+	<p>Hi there, <br />welcome to my Blog glad you found it. Have a look around, will you?</p>
+</div>
+
+	    
+	      <div class="footer__element">
+	<h5>Check out</h5>
+	<ul class="footer-links">
+		<li class="footer-links__link"><a href="/archives">Archive</a></li>
+		
+		<li class="footer-links__link"><a href="/about">about page</a></li>
+		<li class="footer-links__link"><a href="/tags">Tags</a></li>
+		<li class="footer-links__link"><a href="/categories">Categories</a></li>
+	</ul>
+</div>
+
+	    
+
+		<div class="footer-credit">
+			<span>© 2017 Howard Bates | Powered by <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/HoverBaum/meilidu-hexo">MeiliDu</a></span>
+		</div>
+
+	</div>
+
+	<div id="disqus_thread"></div>
+	<script>
+
+          /**
+           *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+           *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+		 var disqus_config = function () {
+		 this.page.url = https://codeelegant.github.io;  // Replace PAGE_URL with your page's canonical URL variable
+		 this.page.identifier = CodeElegant; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		 };
+          (function() { // DON'T EDIT BELOW THIS LINE
+               var d = document, s = d.createElement('script');
+               s.src = 'https://https-codeelegant-github-io.disqus.com/embed.js';
+               s.setAttribute('data-timestamp', +new Date());
+               (d.head || d.body).appendChild(s);
+          })();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</footer>
+
+
+
+</body>
+
+</html>
