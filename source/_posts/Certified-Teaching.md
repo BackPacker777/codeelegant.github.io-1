@@ -21,4 +21,4 @@ I believe the hardest part of this will be community concensus on what constitut
 
 So, why only certify teachers and not the students? Well, there's [evidence-based research](http://www.futurity.org/learning-students-teaching-741342/) that to learn something better, you should teach it to others. If the students want to demonstrate their competency, what better way that to show us that they can teach it?
 
-![](/stuff/cartoon.jpg)
+![](/stuff/cartoon1.jpg)
