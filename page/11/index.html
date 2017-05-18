@@ -33,65 +33,58 @@
 
 	<article>
 	
-		<h1><a href="/2017/03/13/Elegant-Code/">Elegant Code</a></h1>
+		<h1><a href="/2017/03/14/Start-the-Beginning/">Start @ the Beginning</a></h1>
 	
 	<div class="article__infos">
-		<span class="article__date">03-13-2017</span><br />
+		<span class="article__date">03-14-2017</span><br />
 		
+			<span class="article__category">
+				<a class="article-category-link" href="/categories/Programming-Logistics/">Programming Logistics</a>
+			</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/IDE-plugins-sites/">IDE, plugins, sites</a>
+			</span>
 		
 	</div>
 
 	
 
 	
-		<h4 id="Attempting-to-raise-coding-skills-from-high-intermediate-to-high"><a href="#Attempting-to-raise-coding-skills-from-high-intermediate-to-high" class="headerlink" title="Attempting to raise coding skills from high-intermediate to high"></a>Attempting to raise coding skills from high-intermediate to high</h4><p>When I migrated my Introduction to Programming classes from Perl to Node.js, I had a slightly moderate learning curve.<br>I also moved my AP CompSci classes away from Java to Modern Web Development. I had dabbled in web development back in the 90’s and stopped about the time frames were a thing. But now….. HOLY COW! Modern web dev is HUGE. A few things were immediately apparent about the current state of affairs:  </p>
-<ul>
-<li>Functional programming is difficult to grok, so people keep making frameworks &amp; such to abstract away the hard, tedious job of coding.</li>
-<li>Half the people lament the fact that there are so many frameworks and the other half say ‘you must not write enterprise-class software<br>or you’d understand the need for all of this flux!’</li>
-<li>Heck, there are even small divisions on whether JavaScript should still be used by the browsers as the defacto language!  </li>
+		<p>I lament the fact that the college I teach programming at does not offer a <em>‘tooling’</em> class. I believe that students who choose programming as a vocation would be better served by learning <em>how</em> to code first before they get into <em>what</em> to code. The programming ecosystem is quite large and somewhat diverse, especially in the realm of editors/IDEs. Below, I will outline what seems to work best for me &amp; my students and I will provide pertinent, curated learning materials that will hopefully help you get started and be productive. If you have had better luck along the way with different tools, please feel free to share! Please also be aware that I code in Windows 10, so you will have to modify your downloads for your OS. Please, please don’t just glance at the educational material provided below. Really take the time to learn each tool. I am speaking from the school of hard knocks here as I wasn’t always diligent and I paid the price in frustration later as I would go back and find the answer in the material. </p>
+<h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><ul>
+<li>IDE: <a href="http://www.jetbrains.com/idea/download" target="_blank" rel="external">IntelliJ IDEa Ultimate</a> - There are a LOT of editors/IDEs out there (Sublime, Atom, etc.) and the Ultimate edition of IntelliJ is not cheap, but I feel like it is a work of art. With wonderful plugins, support for a lot of bleeding-edge web tech, and a large support pool on the interwebs it is my go-to IDE for all of my programming. Heck, they now even support Perl with a plugin! Learn <a href="http://blog.jetbrains.com/idea/2015/06/new-courseware-for-intellij-idea/" target="_blank" rel="external">HERE</a>.</li>
+<li>Editor: <a href="http://notepad-plus-plus.org/download/v7.3.3.html" target="_blank" rel="external">Notepad++</a> - When I need to quick-open/edit a file, this is the tool I turn to. It has plenty of themes &amp; plugins to make you happy and they are now <a href="http://notepad-plus-plus.org/news/notepad-7.3.3-fix-cia-hacking-issue.html" target="_blank" rel="external">CIA proof</a>.</li>
+<li><a href="http://git-scm.com/download/win" target="_blank" rel="external">Git for Windows</a> - This tool is needed to keep track of the changes you make to your programming files. Learn <a href="http://www.udacity.com/course/how-to-use-git-and-github--ud775" target="_blank" rel="external">HERE</a>.</li>
+<li><a href="http://desktop.github.com" target="_blank" rel="external">GitHub Desktop</a> - Additional utility you can use to publish the repositories you create with Git to the web.</li>
+<li><a href="http://nodejs.org" target="_blank" rel="external">Node.js</a> - This is the engine that web browsers use to compile the JavaScript code that you write for web pages. They ripped it out, souped it up, and provided it for computers to utilize <em>outside</em> the browser!</li>
+<li><a href="https://www.google.com/intl/en/chrome/browser/desktop/index.html?standalone=1" target="_blank" rel="external">Google Chrome</a> - Indispensable web browser because of its support of language features but <em><strong>ESPECIALLY</strong></em> because of its <a href="https://developers.google.com/web/tools/chrome-devtools/" target="_blank" rel="external">developer tools</a>!</li>
+<li>IntelliJ plugins - At a minimum I recommend these: .ignore, CSS support, EJS, ESLint, Floobits, Git, GitHub, JavaScript, &amp; NodeJS. I also like the Material Theme.</li>
+<li>Global NPM modules - Use NPM to install these globally: <code>npm install -g PM2, ESLint, JSDoc</code></li>
+<li>Chrome Application: <a href="http://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb" target="_blank" rel="external">Web server for Chrome</a> - Really handy for viewing your static web files locally.</li>
+<li>SCSS transpiler <a href="http://koala-app.com/" target="_blank" rel="external">Koala</a> - VERY easy SCSS to CSS transpiler (converts SCSS to CSS). I will cover this in a later post.</li>
 </ul>
-<p>I don’t have an opinion on the hot-mess state of affairs, but I did need to distill out what I felt was important to learn.<br>This is the list I came up with:  </p>
-<ul>
-<li>IDE - IntelliJ Ultimate &amp; Notepad++ with plugins</li>
-<li>Git/Github</li>
-<li>HTML5 with all the meta tag goodness for responsiveness</li>
-<li>Markdown</li>
-<li>CSS3 (media queries, fluid text &amp; images, responsiveness) mobile 1st…</li>
-<li>SCSS</li>
-<li>CSS FrameWork (Foundation, Pure, Bootstrap, &amp; Skeleton are great examples)</li>
-<li>ES6 JavaScript (ESPECIALLY event listening/handling)</li>
-<li>Regular expressions</li>
-<li>Node.js (this is just JavaScript but modules, NPM, &amp; libraries are essential knowledge)  </li>
+<h5 id="Integrating-Git-amp-Intellij"><a href="#Integrating-Git-amp-Intellij" class="headerlink" title="Integrating Git &amp; Intellij:"></a>Integrating Git &amp; Intellij:</h5><ol>
+<li>Ensure you have Git installed on your computer (download &amp; install Git for Windows if not using a Mac or Linux box). a. Choose basic start menu (registry-based), and run from windows command prompt.</li>
+<li>Ensure your GitHub account info is set in IntelliJ a. File -&gt; Settings -&gt; Version Control -&gt; GitHub</li>
+<li>After you have your project created and made your initial edits go here: VCS -&gt; Import into Version Control -&gt; Create Git Repository…</li>
+<li>Ensure the root directory of your project is selected and choose OK.</li>
+<li>You will be returned to IntelliJ. In your left pane (project pane) right-click your root directory and choose: Git -&gt; Add.</li>
+<li>Then on the menu bar choose: VCS -&gt; Git -&gt; Commit Directory.</li>
+<li>When the Commit Changes windows pops up, type a message in the “Commit Message” section then choose Commit at the bottom.</li>
+<li>If a Code Analysis window pops up, choose Commit.</li>
+<li>On the menu bar choose: VCS -&gt; Import into Version Control -&gt; Share Project on GitHub.</li>
+<li>When the pop-up appears, type a description and click Share.</li>
+</ol>
+<h3 id="Sites"><a href="#Sites" class="headerlink" title="Sites"></a>Sites</h3><ul>
+<li>The PREMIER static learning resource on the whole of the internet (IMHO) is the <a href="https://developer.mozilla.org/en-US/docs/Web" target="_blank" rel="external">Mozilla Developer Network (MDN)</a>. This should be your default reference.<br><figure class="figure"><img src="/stuff/mdn.jpg" alt="MDN"><figcaption class="figure__caption">MDN</figcaption></figure></li>
+<li><a href="http://stackoverflow.com" target="_blank" rel="external">StackOverflow</a> - THE site for getting questions answered, but beware: Be sure you’ve exhausted all of your other resources 1st before asking a question here lest you find yourself kicked into a donkey rape-pit of disdain from the elite users of the site.<br><figure class="figure"><img src="/stuff/stackoverflow.png" alt="Stack Overflow"><figcaption class="figure__caption">Stack Overflow</figcaption></figure></li>
+<li><a href="https://hashnode.com/" target="_blank" rel="external">HashNode</a> - A more gentle, but less effective question answering site.<br><figure class="figure"><img src="/stuff/hashnode.png" alt="HashNode"><figcaption class="figure__caption">HashNode</figcaption></figure></li>
+<li>Reddit - <a href="https://www.reddit.com/r/webdev/" target="_blank" rel="external">r/webdev</a>, <a href="https://www.reddit.com/r/javascript/" target="_blank" rel="external">r/javascript</a>, <a href="https://www.reddit.com/r/learnjavascript/" target="_blank" rel="external">r/learnjavascript</a> are all indispensable resources!<br><figure class="figure"><img src="/stuff/reddit.jpg" alt="Reddit"><figcaption class="figure__caption">Reddit</figcaption></figure></li>
 </ul>
-<p>Everything on the above list is what <strong><em>I</em></strong> would consider foundational, imperative knowledge. But wait, there’s more. Everything on the next list is important too, but it starts to become more difficult and opinionated:  </p>
-<ul>
-<li>A solid understanding of http requests, responses, request types, mime types, and valid response codes</li>
-<li>A solid understanding of functional programming (first class functions, pure functions, IIFEs, closures, function expressions vs. function declarations)</li>
-<li>A solid understanding of Ajax &amp; JSON with stringify &amp; parse</li>
-<li>Writing a pure Node.js web server with no frameworks, including routing &amp; mime type handling</li>
-<li>A templating engine. I chose EJS for it’s simplicity</li>
-<li>File I/O with Ajax, CSV, &amp; databses (I chose NeDB for Mongo-like syntax at a millionith of the overhead)</li>
-<li>Progressive web app methodology (https, manifest.json, service worker, &amp; favicons)</li>
-<li><a href="http://firebase.google.com" target="_blank" rel="external">Firebase</a></li>
-<li><a href="http://www.heroku.com" target="_blank" rel="external">Heroku</a></li>
-</ul>
-<p>As I began my learning journey, I had many obstacles. The main one was my OCD personality. When I code, I prefer to do it using industry best-practice standards. Learning modern web development using the web is not very conducive to this because of all the bad or outdated material out there. Just filtering the web content is a major chore and it was one that I tried my best to sheild my students from by curating the best of the best and linking what I found on our LMS (learning management system).</p>
-<p>If I were to rank skill with a particular subject, I would probably do it like this:  </p>
-<ul>
-<li><strong><em>Unskilled</em></strong></li>
-<li>Low</li>
-<li>Intermediate-low</li>
-<li>Upper-low</li>
-<li>Lower-intermediate</li>
-<li>Intermediate</li>
-<li>Upper-intermediate</li>
-<li>Lower-high</li>
-<li>Intermediate-high</li>
-<li>High</li>
-<li><strong><em>Expert</em></strong></li>
-</ul>
-<p>I feel that after two years of working my way through the learning process, I am at the high-intermediate plateau. I can read &amp; understand most standard code. I can extemporaneously write a progressive web app &amp; have it hosted on Heroku. I can easily help my students with their coding projects. Where I feel like I’m lacking: Understanding how to implement Oauth2, refined design patterns to optimize my applications, ES6 symbols &amp; promises, and finally, a good eye for UX design.  </p>
-<p>As I tackle the things I need to work on, I will go back and write these web logs to present the material I’ve curated for my students in an effort to help the next people that need to dive in from the top.</p>
+<h4 id="Final-Thought"><a href="#Final-Thought" class="headerlink" title="Final Thought"></a>Final Thought</h4><p>It is assumed before you ever dig into any type of programming that you know how to computer. What I mean by that is that you know how to manage your files &amp; folders on your computer. If you do not, here are two resources for Windows users: <a href="http://www.quepublishing.com/articles/article.aspx?p=2163343" target="_blank" rel="external">RESOURCE 1</a>, <a href="https://www.groovypost.com/howto/windows-10-files-folders-file-explorer/" target="_blank" rel="external">RESOURCE 2</a>.</p>
+<p>That should be WAY more than enough stuff to explore and install to get you up and running so you can start coding!</p>
 
 	
 
@@ -120,8 +113,8 @@
 
 
 
+	<span class="different-posts">📖 <a href="/page/12">more posts</a> 📖</span>
 
-	<span class="different-posts">📕 end of posts 📕</span>
 
 
 	</main>

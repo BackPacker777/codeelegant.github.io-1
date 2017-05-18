@@ -33,58 +33,37 @@
 
 	<article>
 	
-		<h1><a href="/2017/03/14/Start-the-Beginning/">Start @ the Beginning</a></h1>
+		<h1><a href="/2017/03/14/Document-Your-Journey/">Document Your Journey</a></h1>
 	
 	<div class="article__infos">
 		<span class="article__date">03-14-2017</span><br />
 		
-			<span class="article__category">
-				<a class="article-category-link" href="/categories/Programming-Logistics/">Programming Logistics</a>
-			</span><br />
-		
-		
-			<span class="article__tags">
-			  	<a class="article__tag-link" href="/tags/IDE-plugins-sites/">IDE, plugins, sites</a>
-			</span>
 		
 	</div>
 
 	
 
 	
-		<p>I lament the fact that the college I teach programming at does not offer a <em>‘tooling’</em> class. I believe that students who choose programming as a vocation would be better served by learning <em>how</em> to code first before they get into <em>what</em> to code. The programming ecosystem is quite large and somewhat diverse, especially in the realm of editors/IDEs. Below, I will outline what seems to work best for me &amp; my students and I will provide pertinent, curated learning materials that will hopefully help you get started and be productive. If you have had better luck along the way with different tools, please feel free to share! Please also be aware that I code in Windows 10, so you will have to modify your downloads for your OS. Please, please don’t just glance at the educational material provided below. Really take the time to learn each tool. I am speaking from the school of hard knocks here as I wasn’t always diligent and I paid the price in frustration later as I would go back and find the answer in the material. </p>
-<h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><ul>
-<li>IDE: <a href="http://www.jetbrains.com/idea/download" target="_blank" rel="external">IntelliJ IDEa Ultimate</a> - There are a LOT of editors/IDEs out there (Sublime, Atom, etc.) and the Ultimate edition of IntelliJ is not cheap, but I feel like it is a work of art. With wonderful plugins, support for a lot of bleeding-edge web tech, and a large support pool on the interwebs it is my go-to IDE for all of my programming. Heck, they now even support Perl with a plugin! Learn <a href="http://blog.jetbrains.com/idea/2015/06/new-courseware-for-intellij-idea/" target="_blank" rel="external">HERE</a>.</li>
-<li>Editor: <a href="http://notepad-plus-plus.org/download/v7.3.3.html" target="_blank" rel="external">Notepad++</a> - When I need to quick-open/edit a file, this is the tool I turn to. It has plenty of themes &amp; plugins to make you happy and they are now <a href="http://notepad-plus-plus.org/news/notepad-7.3.3-fix-cia-hacking-issue.html" target="_blank" rel="external">CIA proof</a>.</li>
-<li><a href="http://git-scm.com/download/win" target="_blank" rel="external">Git for Windows</a> - This tool is needed to keep track of the changes you make to your programming files. Learn <a href="http://www.udacity.com/course/how-to-use-git-and-github--ud775" target="_blank" rel="external">HERE</a>.</li>
-<li><a href="http://desktop.github.com" target="_blank" rel="external">GitHub Desktop</a> - Additional utility you can use to publish the repositories you create with Git to the web.</li>
-<li><a href="http://nodejs.org" target="_blank" rel="external">Node.js</a> - This is the engine that web browsers use to compile the JavaScript code that you write for web pages. They ripped it out, souped it up, and provided it for computers to utilize <em>outside</em> the browser!</li>
-<li><a href="https://www.google.com/intl/en/chrome/browser/desktop/index.html?standalone=1" target="_blank" rel="external">Google Chrome</a> - Indispensable web browser because of its support of language features but <em><strong>ESPECIALLY</strong></em> because of its <a href="https://developers.google.com/web/tools/chrome-devtools/" target="_blank" rel="external">developer tools</a>!</li>
-<li>IntelliJ plugins - At a minimum I recommend these: .ignore, CSS support, EJS, ESLint, Floobits, Git, GitHub, JavaScript, &amp; NodeJS. I also like the Material Theme.</li>
-<li>Global NPM modules - Use NPM to install these globally: <code>npm install -g PM2, ESLint, JSDoc</code></li>
-<li>Chrome Application: <a href="http://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb" target="_blank" rel="external">Web server for Chrome</a> - Really handy for viewing your static web files locally.</li>
-<li>SCSS transpiler <a href="http://koala-app.com/" target="_blank" rel="external">Koala</a> - VERY easy SCSS to CSS transpiler (converts SCSS to CSS). I will cover this in a later post.</li>
+		<p>As you navigate your learning it is recommended that you write a web log (blog) record of it all. Why? How about these two guy’s reasoning:</p>
+<ul>
+<li><a href="https://twitter.com/danluu/status/806223533181468672" target="_blank" rel="external">Dan Luu from Microsoft</a>, <a href="https://www.linkedin.com/in/danluu/" target="_blank" rel="external">About</a></li>
+<li><a href="https://sites.google.com/site/steveyegge2/you-should-write-blogs" target="_blank" rel="external">Steve Yegge from Google</a>, <a href="https://en.wikipedia.org/wiki/Steve_Yegge" target="_blank" rel="external">About</a></li>
 </ul>
-<h5 id="Integrating-Git-amp-Intellij"><a href="#Integrating-Git-amp-Intellij" class="headerlink" title="Integrating Git &amp; Intellij:"></a>Integrating Git &amp; Intellij:</h5><ol>
-<li>Ensure you have Git installed on your computer (download &amp; install Git for Windows if not using a Mac or Linux box). a. Choose basic start menu (registry-based), and run from windows command prompt.</li>
-<li>Ensure your GitHub account info is set in IntelliJ a. File -&gt; Settings -&gt; Version Control -&gt; GitHub</li>
-<li>After you have your project created and made your initial edits go here: VCS -&gt; Import into Version Control -&gt; Create Git Repository…</li>
-<li>Ensure the root directory of your project is selected and choose OK.</li>
-<li>You will be returned to IntelliJ. In your left pane (project pane) right-click your root directory and choose: Git -&gt; Add.</li>
-<li>Then on the menu bar choose: VCS -&gt; Git -&gt; Commit Directory.</li>
-<li>When the Commit Changes windows pops up, type a message in the “Commit Message” section then choose Commit at the bottom.</li>
-<li>If a Code Analysis window pops up, choose Commit.</li>
-<li>On the menu bar choose: VCS -&gt; Import into Version Control -&gt; Share Project on GitHub.</li>
-<li>When the pop-up appears, type a description and click Share.</li>
-</ol>
-<h3 id="Sites"><a href="#Sites" class="headerlink" title="Sites"></a>Sites</h3><ul>
-<li>The PREMIER static learning resource on the whole of the internet (IMHO) is the <a href="https://developer.mozilla.org/en-US/docs/Web" target="_blank" rel="external">Mozilla Developer Network (MDN)</a>. This should be your default reference.<br><figure class="figure"><img src="/stuff/mdn.jpg" alt="MDN"><figcaption class="figure__caption">MDN</figcaption></figure></li>
-<li><a href="http://stackoverflow.com" target="_blank" rel="external">StackOverflow</a> - THE site for getting questions answered, but beware: Be sure you’ve exhausted all of your other resources 1st before asking a question here lest you find yourself kicked into a donkey rape-pit of disdain from the elite users of the site.<br><figure class="figure"><img src="/stuff/stackoverflow.png" alt="Stack Overflow"><figcaption class="figure__caption">Stack Overflow</figcaption></figure></li>
-<li><a href="https://hashnode.com/" target="_blank" rel="external">HashNode</a> - A more gentle, but less effective question answering site.<br><figure class="figure"><img src="/stuff/hashnode.png" alt="HashNode"><figcaption class="figure__caption">HashNode</figcaption></figure></li>
-<li>Reddit - <a href="https://www.reddit.com/r/webdev/" target="_blank" rel="external">r/webdev</a>, <a href="https://www.reddit.com/r/javascript/" target="_blank" rel="external">r/javascript</a>, <a href="https://www.reddit.com/r/learnjavascript/" target="_blank" rel="external">r/learnjavascript</a> are all indispensable resources!<br><figure class="figure"><img src="/stuff/reddit.jpg" alt="Reddit"><figcaption class="figure__caption">Reddit</figcaption></figure></li>
+<p>There is real value in writing your thoughts down and articulating your learnings.</p>
+<p>You have a huge array of blogging methods &amp; platforms available to you such as WordPress &amp; Moodle. My recommendation is the following combo:</p>
+<ul>
+<li><a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a> - You already have access to this resource because you have a GitHub account!<br><figure class="figure"><img src="/stuff/githubpages.png" alt="Github"><figcaption class="figure__caption">Github</figcaption></figure></li>
+<li><a href="https://en.wikipedia.org/wiki/Markdown" target="_blank" rel="external">Markdown</a> - A dead-simple set of extra characters that you add to plain text. The final product is easily converted to web pages (html). <a href="http://www.markdowntutorial.com/" target="_blank" rel="external">Learn</a>, <a href="https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf" target="_blank" rel="external">Reference</a>.<br><figure class="figure"><img src="/stuff/markdown.png" alt="Markdown"><figcaption class="figure__caption">Markdown</figcaption></figure></li>
+<li><a href="https://hexo.io" target="_blank" rel="external">Hexo</a> - This one was bit of a challenge for me. I had all kinds of trouble setting it up with a vanilla Windows 10 computer. <a href="https://malekbenz.com/blog/2016/09/10/Create-Host-Blog-for-free-with-Hexo-Github" target="_blank" rel="external">HERE</a> is a good tutorial but with some caveats (see below). Hexo works because you have already installed Node.js on your computer.<br><figure class="figure"><img src="/stuff/hexo.png" alt="Hexo"><figcaption class="figure__caption">Hexo</figcaption></figure></li>
 </ul>
-<h4 id="Final-Thought"><a href="#Final-Thought" class="headerlink" title="Final Thought"></a>Final Thought</h4><p>It is assumed before you ever dig into any type of programming that you know how to computer. What I mean by that is that you know how to manage your files &amp; folders on your computer. If you do not, here are two resources for Windows users: <a href="http://www.quepublishing.com/articles/article.aspx?p=2163343" target="_blank" rel="external">RESOURCE 1</a>, <a href="https://www.groovypost.com/howto/windows-10-files-folders-file-explorer/" target="_blank" rel="external">RESOURCE 2</a>.</p>
-<p>That should be WAY more than enough stuff to explore and install to get you up and running so you can start coding!</p>
+<h4 id="Hexo-Caveats"><a href="#Hexo-Caveats" class="headerlink" title="Hexo Caveats"></a>Hexo Caveats</h4><p>I had to update my _config.yml file with the following:</p>
+<ul>
+<li>I downloaded a new theme from Hexo’s <a href="https://hexo.io/themes/" target="_blank" rel="external">theme site</a>, put it in the themes directory and set the <strong>theme:</strong> to its name.</li>
+<li>I changed the public path to:  <code>./</code> so that my blog would be available from the root url.</li>
+<li>I had trouble getting the server to run, so I ran the <code>hexo generate</code> command first then the <code>hexo server -s</code> command.</li>
+<li><strong>EVERYTHING</strong> is case-sensitive. Beware.</li>
+</ul>
+<p>This should get you up &amp; running! These tasks should be fairly complex if you are new to all of this, but it is a good introduction to workflow for this vocation. Writing Markdown is good place to begin before you start writing code. Please email me your blog address:  <strong><em>bates4e@gmail.com</em></strong> so I can read it!</p>
 
 	
 
